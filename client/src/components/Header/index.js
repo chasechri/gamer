@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 // import { Link } from "react-router-dom";
-import Auth from "../../utils/auth";
+import Auth from '../../utils/auth';
 
 const Header = () => {
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
-  return (
-    <header>
-      <div>
-        <h1>Gamer</h1>
-        <nav>
-          {/* {Auth.loggedIn() ? (
+	const logout = (event) => {
+		event.preventDefault();
+		Auth.logout();
+	};
+	return (
+		<header>
+			<div>
+				<h1>Gamer</h1>
+				<nav>
+					{/* {Auth.loggedIn() ? (
             <>
               <Link to="/profile">Me</Link>
               <a href="/" onClick={logout}>
@@ -25,10 +25,10 @@ const Header = () => {
               <Link to="/signup">Signup</Link>
             </>
           )} */}
-        </nav>
-      </div>
-    </header>
-  );
+				</nav>
+			</div>
+		</header>
+	);
 };
 
 export default Header;
