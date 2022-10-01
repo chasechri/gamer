@@ -24,29 +24,29 @@ export const ADD_USER = gql`
 	}
 `
 
-export const ADD_THOUGHT = gql`
-	mutation addThought($thoughtText: String!) {
-		addThought(thoughtText: $thoughtText) {
+export const ADD_POST = gql`
+	mutation addPost($postText: String!) {
+		addPost(postText: $postText) {
 			_id
-			thoughtText
+			postText
 			createdAt
 			username
-			reactionCount
-			reactions {
+			commentCount
+			comments {
 				_id
 			}
 		}
 	}
 `
 
-export const ADD_REACTION = gql`
-	mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
-		addReaction(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+export const ADD_COMMENT = gql`
+	mutation addComment($postId: ID!, $commentBody: String!) {
+		addReaction(postId: $postId, commentBody: $commentBody) {
 			_id
-			reactionCount
-			reactions {
+			commentCount
+			comments {
 				_id
-				reactionBody
+				commentBody
 				createdAt
 				username
 			}
