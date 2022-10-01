@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import UserCard from '../UserCard'
 
-export default function UserList() {
-	// return users.map((user) => {
+export default function UserList({ user }) {
+	// return players.map((user) => {
 	return (
-		<div className='flex-row'>
+		<div className=''>
 			<UserCard
-			// user={user}
+			// user={user.username}
 			// key={user.id}
-			// user={user}
-			// age={age}
-			// rank={rank}
-			// platform={platform}
+			// rank={user.rank}
+			// hours={user.hours}
+			// comms={user.comms}
+			// platform={user.platform}
 			/>
 		</div>
 	)
