@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import UserCard from "../UserCard";
 
-export default function UserList() {
-  // return users.map((user) => {
-  return (
-    <div className="flex-row">
-      <UserCard
-      // user={user}
-      // key={user.id}
-      // user={user}
-      // age={age}
-      // rank={rank}
-      // platform={platform}
-      />
-    </div>
-  );
-  // })
+
+export default function UserList({ user }) {
+	// return players.map((user) => {
+	return (
+		<div className=''>
+			<UserCard
+			// user={user.username}
+			// key={user.id}
+			// rank={user.rank}
+			// hours={user.hours}
+			// comms={user.comms}
+			// platform={user.platform}
+			/>
+		</div>
+	)
+	// })
 }
