@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import UserCard from '../UserCard'
+import React, { useState } from "react";
+import UserCard from "../UserCard";
+
 
 export default function UserList({ user }) {
 	// return players.map((user) => {
