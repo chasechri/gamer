@@ -25,6 +25,7 @@ code {
 }
 
 
+
 a {
   color: var(--icon);
   text-decoration: none;
@@ -40,4 +41,16 @@ span {
 
 .card {
   text-align: center;
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.path {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
