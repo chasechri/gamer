@@ -7,6 +7,13 @@ export const QUERY_POSTS = gql`
 			postText
 			createdAt
 			username
+			profiles {
+				gamertag
+				rank
+				platform
+				hours
+				comms
+			}
 			commentCount
 			comments {
 				_id
@@ -25,6 +32,13 @@ export const QUERY_POST = gql`
 			postText
 			createdAt
 			username
+			profiles {
+				gamertag
+				rank
+				platform
+				hours
+				comms
+			}
 			commentCount
 			comments {
 				_id

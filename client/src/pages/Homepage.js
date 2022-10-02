@@ -1,35 +1,48 @@
-import React from 'react'
-import UserList from '../components/UserList'
-import UserCards from '../components/UserCard'
+import React from 'react';
+import UserList from '../components/UserList';
+import PostList from '../components/PostList';
+// import UserCards from '../components/UserCard';
+
+import { useQuery } from '@apollo/client';
+import { QUERY_POSTS } from '../utils/queries';
 
 const Homepage = () => {
-	// const { loading, data } = useQuery(QUERY_THOUGHTS)
-	// const { data: userData } = useQuery(QUERY_ME_BASIC)
-	// const users = data?.users || []
+	// using the query hook to make a request 
+	const { loading, data } = useQuery(QUERY_POSTS);
+	// checking if there's data to post (if not then store it in empty array)
+	const posts = data?.posts || [];
+	console.log(posts);
 
-	// const loggedIn = Auth.loggedIn()
+
+
 	return (
 		<main>
+			
 			<div className=''>
 				<h1 className='text-xl mx-10 px-5'>Player list</h1>
-				<button
-					type='dropdown'
-					className='rounded-xl bg-red-500 text-black px-1 py-1 mx-5'
-				>
+				<button type='dropdown' 
+					className='rounded-xl bg-red-500 text-black px-1 py-1 mx-5' >
 					FILTER
 				</button>
 			</div>
-			<div
-				name='user-list'
-				className=''
-			>
+			
+			<div name='user-list' className='' >
 				<UserList
 					// users={users}
 					title='Player List'
 				/>
 			</div>
-		</main>
-	)
-}
 
-export default Homepage
+			<div>
+			{loading ? (
+        	<div>Loading...</div>
+				) : (
+					<PostList posts={posts} title="Don't be discouraged to make the first post" />
+				)}
+			</div>
+		
+		</main>
+	);
+};
+
+export default Homepage;
