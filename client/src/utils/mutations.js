@@ -25,16 +25,13 @@ export const ADD_USER = gql`
 `
 
 export const ADD_POST = gql`
-	mutation addPost($postText: String!) {
-		addPost(postText: $postText) {
+	mutation addPost($rank: String!, $platform: String!, $hours: String!, $comms: String!) {
+		addPost(rank: $rank, platform: $platform, hours: $hours, comms: $comms) {
 			_id
-			profiles {
-				gamertag
-				rank
-				platform
-				hours
-				comms
-			}
+			rank
+			platform
+			hours
+			comms
 			createdAt
 			username
 			commentCount
@@ -47,7 +44,7 @@ export const ADD_POST = gql`
 
 export const ADD_COMMENT = gql`
 	mutation addComment($postId: ID!, $commentBody: String!) {
-		addReaction(postId: $postId, commentBody: $commentBody) {
+		addComment(postId: $postId, commentBody: $commentBody) {
 			_id
 			commentCount
 			comments {
@@ -60,20 +57,6 @@ export const ADD_COMMENT = gql`
 	}
 `
 
-export const ADD_PROFILE = gql`
-	mutation addProfile($postId: ID!, $gamertag: String!, $rank: String!, $platform: String!, $hours: String!, $comms: String!) {
-		addProfile(postId: $postId, gamertag: $gamertag, rank: $rank, platform: $platform, hours: $hours, comms: $comms ) {
-			_id
-			profiles {
-				gamertag
-				rank
-				platform
-				hours
-				comms
-			}
-		}
-	}
-`
 
 export const ADD_FRIEND = gql`
 	mutation addFriend($id: ID!) {

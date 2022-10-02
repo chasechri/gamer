@@ -40,8 +40,7 @@ const PostList = ({ posts, title }) => {
 						<p className='flex justify-center'>{post.comms}</p>
 					</div>
                 
-                <div>
-                </div>
+               
 				<button
 					className='bg-black text-white px-2 text-center justify-items-end rounded-xl'
 					type='submit'
@@ -50,6 +49,12 @@ const PostList = ({ posts, title }) => {
 					CONNECT
 				</button>
                
+                </div>
+				<div>
+				<p >
+                  Comments: {post.commentCount} || Click to{' '}
+                  {post.commentCount ? 'see' : 'start'} the discussion!
+                </p>
                 </div>
             
             
