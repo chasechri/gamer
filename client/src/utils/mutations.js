@@ -28,7 +28,13 @@ export const ADD_POST = gql`
 	mutation addPost($postText: String!) {
 		addPost(postText: $postText) {
 			_id
-			postText
+			profiles {
+				gamertag
+				rank
+				platform
+				hours
+				comms
+			}
 			createdAt
 			username
 			commentCount
@@ -49,6 +55,21 @@ export const ADD_COMMENT = gql`
 				commentBody
 				createdAt
 				username
+			}
+		}
+	}
+`
+
+export const ADD_PROFILE = gql`
+	mutation addProfile($postId: ID!, $gamertag: String!, $rank: String!, $platform: String!, $hours: String!, $comms: String!) {
+		addProfile(postId: $postId, gamertag: $gamertag, rank: $rank, platform: $platform, hours: $hours, comms: $comms ) {
+			_id
+			profiles {
+				gamertag
+				rank
+				platform
+				hours
+				comms
 			}
 		}
 	}

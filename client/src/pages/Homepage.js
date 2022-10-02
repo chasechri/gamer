@@ -1,7 +1,6 @@
 import React from 'react';
-import UserList from '../components/UserList';
 import PostList from '../components/PostList';
-// import UserCards from '../components/UserCard';
+
 
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../utils/queries';
@@ -26,13 +25,6 @@ const Homepage = () => {
 				</button>
 			</div>
 			
-			<div name='user-list' className='' >
-				<UserList
-					// users={users}
-					title='Player List'
-				/>
-			</div>
-
 			<div>
 			{loading ? (
         	<div>Loading...</div>

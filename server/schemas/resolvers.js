@@ -8,7 +8,6 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('profiles')
           .populate('posts')
           .populate('friends');
 
@@ -26,7 +25,6 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
-        .populate('profiles')
         .populate('friends')
         .populate('posts');
     },
@@ -82,19 +80,6 @@ const resolvers = {
         const updatedPost = await Post.findOneAndUpdate(
           { _id: postId },
           { $push: { comments: { commentBody, username: context.user.username } } },
-          { new: true, runValidators: true }
-        );
-
-        return updatedPost;
-      }
-
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    addProfile: async (parent, { postId, gamertag, rank, platform, hours, comms }, context) => {
-      if (context.user) {
-        const updatedPost = await Post.findOneAndUpdate(
-          { _id: postId },
-          { $push: { profiles: { gamertag, rank, platform, hours, comms, username: context.user.username } } },
           { new: true, runValidators: true }
         );
 
