@@ -1,8 +1,19 @@
 import React, { useState } from 'react'
+import PostList from '../components/PostList';
 import UserList from '../components/UserList'
 
+
+import { useQuery } from '@apollo/client';
+import { QUERY_POSTS } from '../utils/queries';
+
 const Homepage = () => {
-	// will later make call to server to grab all players React.useEffect to call server to grab all players
+	// using the query hook to make a request 
+	const { loading, data } = useQuery(QUERY_POSTS);
+	// checking if there's data to post (if not then store it in empty array)
+	const posts = data?.posts || [];
+	console.log(posts);
+  
+  // will later make call to server to grab all players React.useEffect to call server to grab all players
 	const originalPlayers = [
 		{
 			username: 'Gamertag',
@@ -111,15 +122,15 @@ const Homepage = () => {
 			
 		}
 	}
-
-
 	// const { loading, data } = useQuery(QUERY_THOUGHTS)
 	// const { data: userData } = useQuery(QUERY_ME_BASIC)
 	// const users = data?.users || []
 
-	// const loggedIn = Auth.loggedIn()
+
+
 	return (
 		<main>
+
 			<div
 				name='user-list'
 				className='flex flex-row'
@@ -136,9 +147,19 @@ const Homepage = () => {
 					setIsChecked={setIsChecked}
 
 				/>
-			</div>
-		</main>
-	)
-}
 
-export default Homepage
+			</div>
+			
+			<div>
+			{loading ? (
+        	<div>Loading...</div>
+				) : (
+					<PostList posts={posts} title="Don't be discouraged to make the first post" />
+				)}
+			</div>
+		
+		</main>
+	);
+};
+
+export default Homepage;

@@ -4,12 +4,23 @@ const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
   {
-    postText: {
-      type: String,
-      required: 'Posting will increase your chances of finding teammates!',
-      minlength: 1,
-      maxlength: 280
+    rank: {
+        type: String,
+        required: true
     },
+    platform: {
+        type: String, 
+        required: true
+    },
+    hours: {
+        type: String, 
+        required: true
+    },
+    comms: {
+        type: String, 
+        required: true
+    },
+
     createdAt: {
       type: Date,
       default: Date.now,
@@ -20,6 +31,7 @@ const postSchema = new Schema(
       required: true
     },
     comments: [commentSchema]
+    
   },
   {
     toJSON: {
@@ -31,6 +43,8 @@ const postSchema = new Schema(
 postSchema.virtual('commentCount').get(function() {
   return this.comments.length;
 });
+
+
 
 const Post = model('Post', postSchema);
 
