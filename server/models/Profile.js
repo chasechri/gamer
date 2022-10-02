@@ -1,10 +1,9 @@
 const { Schema } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
 
 const profileSchema = new Schema(
   {
-    username: {
+    gamertag: {
       type: String,
       required: true
     },
@@ -23,11 +22,6 @@ const profileSchema = new Schema(
     comms: {
         type: String, 
         required: true
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: timestamp => dateFormat(timestamp)
     }
   },
   {

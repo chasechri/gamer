@@ -12,9 +12,11 @@ const typeDefs = gql`
 
   type Post {
     _id: ID
-    postText: [Profile]
-    createdAt: Strin
+    postText: String
+    createdAt: String
+    username: String
     commentCount: Int   
+    profiles: [Profile]
     comments: [Comment]
   }
 
@@ -23,6 +25,15 @@ const typeDefs = gql`
     commentBody: String
     createdAt: String
     username: String
+  }
+
+  type Profile {
+    _id: ID
+    gamertag: String
+    rank: String
+    platform: String
+    hours: String
+    comms: String
   }
 
   type Auth {
@@ -43,6 +54,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addPost(postText: String!): Post
     addComment(postId: ID!, commentBody: String!): Post
+    addProfile(postId: ID!, gamertag: String!, rank: String!, platform: String!, hours: String!, comms: String!): Post
     addFriend(friendId: ID!): User
   }
 `;
