@@ -34,7 +34,8 @@ a {
 
 
 span {
-  color: var(--icon)
+  color: var(--icon);
+  font-size: 2.0rem;
 }
 
 .card {
