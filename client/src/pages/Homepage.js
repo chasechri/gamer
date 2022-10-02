@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react'
 import PostList from '../components/PostList';
+import UserList from '../components/UserList'
 
 
 import { useQuery } from '@apollo/client';
@@ -11,18 +12,142 @@ const Homepage = () => {
 	// checking if there's data to post (if not then store it in empty array)
 	const posts = data?.posts || [];
 	console.log(posts);
+  
+  // will later make call to server to grab all players React.useEffect to call server to grab all players
+	const originalPlayers = [
+		{
+			username: 'Gamertag',
+			rank: 'Casual',
+			platform: 'PC',
+			hours: 'AM',
+			comms: 'Y',
+		},
+		{
+			username: 'Gamertag',
+			rank: 'Gold',
+			platform: 'PS5',
+			hours: 'PM',
+			comms: 'Y',
+		},
+	]
+	
+
+	const [isChecked, setIsChecked] = useState(false);
+
+
+
+	const [players, setPlayers] = useState(originalPlayers)
+
+	function handleFilterClick(c) {
+
+	}
+	
+	function clearFilters(c) {
+		setIsChecked(isChecked)
+		console.log('setting to isChecked')
+		if (!isChecked) {
+			console.log('isChecked path')
+			
+			setPlayers(originalPlayers);
+		} else {
+			setIsChecked(isChecked);
+			setPlayers(originalPlayers)
+			console.log('nothing checked')
+		}
+
+	}
+
+
+	function handleRank(rank) {
+		console.log('this is rank', rank.target.value);
+		setIsChecked(!isChecked)
+		if (!isChecked)
+			{
+				console.log('isChecked = true working')
+				setPlayers(players.filter((player) => player.rank === rank.target.value))
+				
+			}
+		if (isChecked) {
+			setPlayers(originalPlayers)
+			console.log('isChecked = false working')
+
+			
+		}
+	}
+	
+	function handlePlatform(platform) {
+		setIsChecked(!isChecked)
+		if (!isChecked)
+			{
+				console.log('isChecked = true working')
+				setPlayers(players.filter((player) => player.platform === platform.target.value))
+				
+			}
+		if (isChecked) {
+			setPlayers(originalPlayers)
+			console.log('isChecked = false working')
+
+			
+		}	
+	}
+	
+	function handleHours(hours) {
+		setIsChecked(!isChecked)
+		if (!isChecked)
+			{
+				console.log('isChecked = true working')
+				setPlayers(players.filter((player) => player.hours === hours.target.value))
+				
+			}
+		if (isChecked) {
+			setPlayers(originalPlayers)
+			console.log('isChecked = false working')
+
+			
+		}
+	}
+	
+	function handleComms(comms) {
+		setIsChecked(!isChecked)
+		if (!isChecked)
+			{
+				console.log('isChecked = true working')
+				setPlayers(players.filter((player) => player.comms === comms.target.value))
+				
+			}
+		if (isChecked) {
+			setPlayers(originalPlayers)
+			console.log('isChecked = false working')
+
+			
+		}
+	}
+	// const { loading, data } = useQuery(QUERY_THOUGHTS)
+	// const { data: userData } = useQuery(QUERY_ME_BASIC)
+	// const users = data?.users || []
 
 
 
 	return (
 		<main>
-			
-			<div className=''>
-				<h1 className='text-xl mx-10 px-5'>Player list</h1>
-				<button type='dropdown' 
-					className='rounded-xl bg-red-500 text-black px-1 py-1 mx-5' >
-					FILTER
-				</button>
+
+			<div
+				name='user-list'
+				className='flex flex-row'
+			>
+				<UserList
+				title='Player List'
+					players={players}
+					handleRank={handleRank}
+					handleHours={handleHours}
+					handlePlatform={handlePlatform}
+					handleComms={handleComms}
+					clearFilters={clearFilters} 
+					isChecked={isChecked}
+					setIsChecked={setIsChecked}
+
+				/>
+
 			</div>
 			
 			<div>

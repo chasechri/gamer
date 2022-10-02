@@ -2,24 +2,7 @@ import React from 'react'
 
 
 
-const players = [
-	{
-		username: 'Gamertag',
-		rank: 'Casual',
-		platform: 'PC',
-		hours: 'AM',
-		comms: 'Y',
-	},
-	{
-		username: 'Gamertag',
-		rank: 'Gold',
-		platform: 'PS5',
-		hours: 'PM',
-		comms: 'Y',
-	},
-]
-
-export default function UserCard({ user }) {
+export default function UserCard({ players }) {
 	// function handleAddFriend() {
 	// 	addFriend(user.id)
 	// }
