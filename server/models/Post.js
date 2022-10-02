@@ -1,15 +1,12 @@
 const { Schema, model } = require('mongoose');
 const commentSchema = require('./Comment');
+const profileSchema = require('./Profile');
 const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
   {
-    postText: {
-      type: String,
-      required: 'Posting will increase your chances of finding teammates!',
-      minlength: 1,
-      maxlength: 280
-    },
+    postText: profileSchema,
+
     createdAt: {
       type: Date,
       default: Date.now,
