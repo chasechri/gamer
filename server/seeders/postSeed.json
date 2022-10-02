@@ -1,42 +1,69 @@
 [
     {
-        
-        "postText" : "molestiae dicta voluptas ut iusto et hic nam", 
+        "rank": "pubs",
+        "platform": "PS5",
+        "hours": "PM",
+        "comms": "yes",
         "username" : "LargeRifle777", 
         "comments" : [ 
             {
-                "commentBody" : "non exercitationem consequatur temporibus quia dicta id earum molestias voluptatibus et ut quia officiis dignissimos ex maxime sit voluptatem", 
+                "commentBody" : "Lets play gun game at 8", 
                 "username" : "DropmeanR3"
             } 
         ] 
     },
     {
-        "postText" : "sapiente illo animi non et molestiae et blanditiis adipisci aut ut dolore", 
+        
+                 "rank": "gold",
+                 "platform": "PS4",
+                 "hours": "PM",
+                 "comms": "yes",
+          
         "username" : "ChokeMeLoba", 
         "comments" : [ ] 
     },
     {
-        "postText" : "et ea non ut occaecati quasi ullam", 
+       
+                
+                 "rank": "plat",
+                 "platform": "PC",
+                 "hours": "AM",
+                 "comms": "No",
+            
         "username" : "xXYoungPredatorXx", 
         "comments" : [ 
             {
-                "commentBody" : "praesentium id ratione quisquam voluptatibus rerum ut et assumenda", 
+                "commentBody" : "Wanna play at like 9AM? I don't have to work", 
                 "username" : "CryppledbyGod" 
             }
      ] 
     },
     {
-        "postText" : "nam assumenda dolorum est sint eum qui dolorem", 
+       
+                 "rank": "pubs",
+                 "platform": "PC",
+                 "hours": "PM",
+                 "comms": "yes",
         "username" : "LargeRifle777", 
         "comments" : [ ] 
     },
     {
-        "postText" : "architecto et eos ut odio repudiandae", 
+                 "rank": "master",
+                 "platform": "XBOX",
+                 "hours": "PM",
+                 "comms": "yes",
+            
         "username" : "DropmeanR3", 
         "comments" : [ ] 
     },
     {
-        "postText" : "voluptas quis voluptates et laborum est facere et quia quasi cupiditate dolorem", 
+        
+            
+                 "rank": "pred",
+                 "platform": "Switch",
+                 "hours": "PM",
+                 "comms": "Ping",
+            
         "username" : "KillaCastle", 
         "comments" : [ 
             {

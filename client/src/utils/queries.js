@@ -4,7 +4,10 @@ export const QUERY_POSTS = gql`
 	query posts($username: String) {
 		posts(username: $username) {
 			_id
-			postText
+			rank
+			platform
+			hours
+			comms
 			createdAt
 			username
 			commentCount
@@ -22,7 +25,10 @@ export const QUERY_POST = gql`
 	query post($id: ID!) {
 		post(_id: $id) {
 			_id
-			postText
+			rank
+			platform
+			hours
+			comms
 			createdAt
 			username
 			commentCount
@@ -49,7 +55,13 @@ export const QUERY_USER = gql`
 			}
 			posts {
 				_id
-				postText
+				profiles {
+				gamertag
+				rank
+				platform
+				hours
+				comms
+			}
 				createdAt
 				commentCount
 			}
@@ -66,7 +78,13 @@ export const QUERY_ME = gql`
 			friendCount
 			posts {
 				_id
-				postText
+				profiles {
+					gamertag
+					rank
+					platform
+					hours
+					comms
+				}
 				createdAt
 				commentCount
 				comments {
