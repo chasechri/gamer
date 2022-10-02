@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHomeLg } from "@fortawesome/free-solid-svg-icons";
 // import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
@@ -10,7 +12,9 @@ const Header = () => {
   return (
     <header>
       <div>
-        <h1>Gamer</h1>
+        <h1> Gamer
+       <span> <FontAwesomeIcon icon={faHomeLg} ></FontAwesomeIcon> </span>
+        </h1>
         <nav>
           {/* {Auth.loggedIn() ? (
             <>
