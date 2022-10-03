@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_REACTION } from "../../utils/mutations";
+import { ADD_COMMENT } from "../../utils/mutations";
 
 const ReachOut = ({ thoughtId }) => {
-  const [reactionBody, setBody] = useState("");
+  const [commentBody, setBody] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
-  const [addReaction, { error }] = useMutation(ADD_REACTION);
+  const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
@@ -18,8 +18,8 @@ const ReachOut = ({ thoughtId }) => {
     event.preventDefault();
 
     try {
-      await addReaction({
-        variables: { reactionBody, thoughtId },
+      await addComment({
+        variables: { commentBody, thoughtId },
       });
 
       setBody("");
@@ -39,7 +39,7 @@ const ReachOut = ({ thoughtId }) => {
       <form className="" onSubmit={handleFormSubmit}>
         <textarea
           placeholder="Send a message..."
-          value={reactionBody}
+          value={commentBody}
           className=""
           onChange={handleChange}
         ></textarea>

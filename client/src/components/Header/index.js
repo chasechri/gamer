@@ -1,5 +1,7 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHomeLg } from "@fortawesome/free-solid-svg-icons";
 import Auth from "../../utils/auth";
 
 const Header = () => {
@@ -8,11 +10,15 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="">
-      <div className="">
-        <h1 className="">Gamer</h1>
+    <header>
+      <div>
+      <Link to="/">
+        <h1> Gamer
+       <span> <FontAwesomeIcon icon={faHomeLg} ></FontAwesomeIcon> </span>
+        </h1>
+        </Link>
         <nav>
-          {/* {Auth.loggedIn() ? (
+          {Auth.loggedIn() ? (
             <>
               <Link to="/profile">Me</Link>
               <a href="/" onClick={logout}>
@@ -24,7 +30,7 @@ const Header = () => {
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
             </>
-          )} */}
+          )}
         </nav>
       </div>
     </header>
