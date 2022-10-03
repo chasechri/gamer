@@ -1,6 +1,10 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
+
+import UserCard from "../components/UserCard";
+import ReachOut from "../components/ReachOut";
+import ReachOutList from "../components/ReachOutList";
 import PostForm from '../components/PostForm';
 import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
@@ -48,8 +52,21 @@ const Profile = (props) => {
     }
   };
 
+
   return (
     <div>
+
+      <div>
+        <UserCard></UserCard>
+        <div>
+          <ReachOut></ReachOut>
+          <ReachOutList></ReachOutList>
+        </div>
+      </div>
+      <div>
+        <FriendList></FriendList>
+      </div>
+
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
