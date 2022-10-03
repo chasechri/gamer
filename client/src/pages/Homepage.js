@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PostList from '../components/PostList';
+import UserCard from '../components/UserCard';
 import UserList from '../components/UserList'
 
 
@@ -154,7 +154,7 @@ const Homepage = () => {
 			{loading ? (
         	<div>Loading...</div>
 				) : (
-					<PostList players={players} title="Don't be discouraged to make the first post" />
+					<UserCard players={players} title="Don't be discouraged to make the first post" />
 				)}
 			</div>
 		

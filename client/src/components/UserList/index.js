@@ -1,8 +1,7 @@
 
 import React, { useState } from 'react'
-import UserCard from '../UserCard'
 import Filters from '../Filters'
-import PostList from '../PostList'
+import UserCard from '../UserCard'
 
 
 

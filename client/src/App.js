@@ -1,8 +1,6 @@
 // import logo from "./logo.svg";
 
 import React from "react";
-
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import {
@@ -15,7 +13,6 @@ import {
 import './index.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -86,15 +83,15 @@ function App() {
                 path="/signup"
                 element={<Signup />}
               />
+              <Route 
+                path="/profile">
+                <Route path=":username" element={<Profile />} />
+                <Route path="" element={<Profile />} />
+              </Route>
               <Route
-                path="/profile"
-                element={<Profile />}
-              />
-			   
-				<Route
-				 path="*"
-				 element={<NoMatch />}
-					/>
+              path="*"
+              element={<NoMatch />}
+                />
             </Routes>
           </div>
          
