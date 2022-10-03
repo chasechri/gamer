@@ -2,12 +2,13 @@
 import React, { useState } from 'react'
 import UserCard from '../UserCard'
 import Filters from '../Filters'
+import PostList from '../PostList'
 
 
 
 
 
-export default function UserList({ players, handleRank, isChecked, handleHours, handlePlatform, handleComms, clearFilters }) {
+export default function UserList({ posts, players, handleRank, isChecked, handleHours, handlePlatform, handleComms, clearFilters }) {
 	// return players.map((user) => {
 	
 	return (
@@ -29,7 +30,8 @@ export default function UserList({ players, handleRank, isChecked, handleHours, 
 					Rank
 				</button> */}
 			</div>
-			<UserCard players={players}/>
+			{/* <UserCard players={players}/> */}
+			
 		</div>
 	)
 	// })

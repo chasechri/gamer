@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-export default function Filters({handleRank,isChecked, handleHours, handlePlatform, handleComms, clearFilters}) {
-    const ranks = ['Casual', 'Gold', 'Platinum']
+export default function Filters({handleRank, handleHours, handlePlatform, handleComms, clearFilters}) {
+    const ranks = ['pubs', 'gold', 'plat', 'master', 'pred']
 	const hours = ['AM', 'PM']
-	const comms = ['Y', 'N']
-	const platform = ['PC', 'PS4/5', 'Xbox']
+	const comms = ['yes', 'no', 'ping']
+	const platform = ['PC', 'PS4', 'PS5', 'XBOX']
     return (
     <div className='flex flex-row mx-1'>
 	    <h4 className='mx-5'>Filters</h4>
