@@ -1,16 +1,16 @@
 import React from 'react';
 
 
-const PostList = ({ posts, title }) => {
-    if (!posts.length) {
+const PostList = ({ players, title }) => {
+    if (!players.length) {
         return <h3> No Posts Yet</h3>;
     }
 
     return(
         <div>
             <h3>{title}</h3>
-            {posts &&
-            posts.map(post => (
+            {players &&
+            players.map(post => (
                 <div key={post._id} className='container flex mx-10 py-5 px-5 my-2 bg-gray-300 items-center border-black border-2'>
            
                 <div>
