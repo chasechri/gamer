@@ -8,14 +8,16 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header>
-      <div>
-        <h1>Gamer</h1>
+    <header className="">
+      <div className="">
+        <h1 className="">Gamer</h1>
         <nav>
           {/* {Auth.loggedIn() ? (
             <>
               <Link to="/profile">Me</Link>
-              <a href="/" onClick={logout}>Logout</a>
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
             </>
           ) : (
             <>

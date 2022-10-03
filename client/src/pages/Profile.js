@@ -2,13 +2,21 @@ import React from "react";
 import FriendList from "../components/FriendList";
 import UserCard from "../components/UserCard";
 import ReachOut from "../components/ReachOut";
+import ReachOutList from "../components/ReachOutList";
 
 const Profile = () => {
   return (
     <div>
-      <UserCard></UserCard>
-      <ReachOut></ReachOut>
-      <FriendList></FriendList>
+      <div>
+        <UserCard></UserCard>
+        <div>
+          <ReachOut></ReachOut>
+          <ReachOutList></ReachOutList>
+        </div>
+      </div>
+      <div>
+        <FriendList></FriendList>
+      </div>
     </div>
   );
 };
