@@ -1,15 +1,12 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
-
-import UserCard from "../components/UserCard";
-import ReachOut from "../components/ReachOut";
-import ReachOutList from "../components/ReachOutList";
-import PostForm from '../components/PostForm';
+import UserForm from '../components/UserForm';
+import UserCard from '../components/UserCard';
 import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME,  } from '../utils/queries';
 import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 
@@ -51,21 +48,8 @@ const Profile = (props) => {
     }
   };
 
-
   return (
     <div>
-
-      <div>
-        <UserCard></UserCard>
-        <div>
-          <ReachOut></ReachOut>
-          <ReachOutList></ReachOutList>
-        </div>
-      </div>
-      <div>
-        <FriendList></FriendList>
-      </div>
-
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
@@ -81,8 +65,8 @@ const Profile = (props) => {
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
           <UserCard
-            thoughts={user.posts}
-            title={`${user.username}'s posts...`}
+            posts={user.posts}
+            title={`${user.username}'s thoughts...`}
           />
         </div>
 
@@ -94,7 +78,7 @@ const Profile = (props) => {
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <PostForm />}</div>
+      <div className="mb-3">{!userParam && <UserForm />}</div>
     </div>
   );
 };

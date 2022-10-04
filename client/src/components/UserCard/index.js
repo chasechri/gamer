@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserCard = ({ players, title }) => {
-    if (!players.length) {
+const UserCard = ({ posts, title }) => {
+    if (!posts.length) {
         return <h3> No Posts Yet</h3>;
     }
 
     return(
         <div>
             <h3>{title}</h3>
-            {players &&
-            players.map(post => (
+            {posts &&
+            posts.map(post => (
                 <div key={post._id} className='container flex mx-10 py-5 px-5 my-2 bg-gray-300 items-center border-black border-2'>
            
                 <div>
@@ -33,17 +33,17 @@ const UserCard = ({ players, title }) => {
 
 					<div className='flex-col justify-between px-2'>
 						<h2 className=' px-1 flex justify-center'>Platform</h2>{' '}
-						<p className='flex justify-center'>{post.platform}</p>
+						<p className='flex justify-center'></p>
 					</div>
 
 					<div className='flex-col justify-around px-2'>
 						<h2 className='px-1 flex justify-center'>Hours</h2>{' '}
-						<p className='flex justify-center'>{post.hours}</p>
+						<p className='flex justify-center'></p>
 					</div>
 
 					<div className='flex-col justify-between px-2'>
 						<h2 className='flex justify-center'>Voicechat?</h2>{' '}
-						<p className='flex justify-center'>{post.comms}</p>
+						<p className='flex justify-center'></p>
 					</div>
                 
                
@@ -57,10 +57,16 @@ const UserCard = ({ players, title }) => {
                
                 </div>
 				<div>
+				<Link 
+							to={`/profile/${post.username}`}
+							style={{ fontweight: 700 }}
+							className="text-light"
+						>
 				<p >
                   Comments: {post.commentCount} || Click to{' '}
                   {post.commentCount ? 'see' : 'start'} the discussion!
                 </p>
+				</Link>
                 </div>
             
             

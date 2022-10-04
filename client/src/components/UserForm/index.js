@@ -5,12 +5,7 @@ import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
 const PostForm = () => {
-  const [ allValues, setText] = useState({
-    rank: '', 
-    platform: '',
-    hours: '',
-    comms: ''
-  });
+  const [ rank, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addPost, { error }] = useMutation(ADD_POST, {
@@ -32,7 +27,7 @@ const PostForm = () => {
       const { posts } = cache.readQuery({ query: QUERY_POSTS });
       cache.writeQuery({
         query: QUERY_POSTS,
-        data: { thoughts: [addPost, ...posts] },
+        data: { posts: [addPost, ...posts] },
       });
     }
   });
@@ -51,7 +46,7 @@ const PostForm = () => {
 
     try {
       await addPost({
-        variables: { allValues },
+        variables: { rank },
       });
 
       // clear form value
@@ -76,7 +71,7 @@ const PostForm = () => {
       >
         <textarea
           placeholder="Here's a new thought..."
-          value={allValues}
+          value={rank}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>

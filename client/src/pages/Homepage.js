@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import UserCard from '../components/UserCard';
-import UserList from '../components/UserList'
+
+import Filters from '../components/Filters';
 
 
 import { useQuery } from '@apollo/client';
@@ -9,38 +10,24 @@ import { QUERY_POSTS } from '../utils/queries';
 const Homepage = () => {
 	// using the query hook to make a request 
 	const { loading, data } = useQuery(QUERY_POSTS);
-	// checking if there's data to post (if not then store it in empty array)
-	const originalPlayers = data?.posts || [];
-	console.log(originalPlayers);
-  
-  // will later make call to server to grab all players React.useEffect to call server to grab all players
-	// const originalPlayers = [
-	// 	{
-	// 		username: 'Gamertag',
-	// 		rank: 'Casual',
-	// 		platform: 'PC',
-	// 		hours: 'AM',
-	// 		comms: 'Y',
-	// 	},
-	// 	{
-	// 		username: 'Gamertag',
-	// 		rank: 'Gold',
-	// 		platform: 'PS5',
-	// 		hours: 'PM',
-	// 		comms: 'Y',
-	// 	},
-	// ]
 	
+
+
+	
+
+
+	// checking if there's data to post (if not then store it in empty array)
+	const originalPosts = data?.posts || [];
+	console.log(originalPosts);
+
+
 
 	const [isChecked, setIsChecked] = useState(false);
 
 
 
-	const [players, setPlayers] = useState(originalPlayers)
+	const [posts, setPosts] = useState(originalPosts)
 
-	function handleFilterClick(c) {
-
-	}
 	
 	function clearFilters(c) {
 		setIsChecked(isChecked)
@@ -48,10 +35,10 @@ const Homepage = () => {
 		if (!isChecked) {
 			console.log('isChecked path')
 			
-			setPlayers(originalPlayers);
+			setPosts(originalPosts);
 		} else {
 			setIsChecked(isChecked);
-			setPlayers(originalPlayers)
+			setPosts(originalPosts)
 			console.log('nothing checked')
 		}
 
@@ -64,68 +51,18 @@ const Homepage = () => {
 		if (!isChecked)
 			{
 				console.log('isChecked = true working')
-				setPlayers(players.filter((player) => player.rank === rank.target.value))
+				setPosts(posts.filter((post) => post.rank === rank.target.value))
 				
 			}
 		if (isChecked) {
-			setPlayers(originalPlayers)
+			setPosts(originalPosts)
 			console.log('isChecked = false working')
 
 			
 		}
 	}
+
 	
-	function handlePlatform(platform) {
-		setIsChecked(!isChecked)
-		if (!isChecked)
-			{
-				console.log('isChecked = true working')
-				setPlayers(players.filter((player) => player.platform === platform.target.value))
-				
-			}
-		if (isChecked) {
-			setPlayers(originalPlayers)
-			console.log('isChecked = false working')
-
-			
-		}	
-	}
-	
-	function handleHours(hours) {
-		setIsChecked(!isChecked)
-		if (!isChecked)
-			{
-				console.log('isChecked = true working')
-				setPlayers(players.filter((player) => player.hours === hours.target.value))
-				
-			}
-		if (isChecked) {
-			setPlayers(originalPlayers)
-			console.log('isChecked = false working')
-
-			
-		}
-	}
-	
-	function handleComms(comms) {
-		setIsChecked(!isChecked)
-		if (!isChecked)
-			{
-				console.log('isChecked = true working')
-				setPlayers(players.filter((player) => player.comms === comms.target.value))
-				
-			}
-		if (isChecked) {
-			setPlayers(originalPlayers)
-			console.log('isChecked = false working')
-
-			
-		}
-	}
-	// const { loading, data } = useQuery(QUERY_THOUGHTS)
-	// const { data: userData } = useQuery(QUERY_ME_BASIC)
-	// const users = data?.users || []
-
 
 
 	return (
@@ -135,30 +72,69 @@ const Homepage = () => {
 				name='user-list'
 				className='flex flex-row'
 			>
-				<UserList
+
+				<Filters
 				title='Player List'
-					players={players}
+					posts={posts}
 					handleRank={handleRank}
-					handleHours={handleHours}
-					handlePlatform={handlePlatform}
-					handleComms={handleComms}
 					clearFilters={clearFilters} 
 					isChecked={isChecked}
 					setIsChecked={setIsChecked}
 
 				/>
-
 			</div>
 			
 			<div>
 			{loading ? (
         	<div>Loading...</div>
 				) : (
-					<UserCard players={players} title="Don't be discouraged to make the first post" />
+					<UserCard posts={posts} title="Don't be discouraged to make the first post" />
 				)}
 			</div>
 		
 		</main>
+	// 	<main>
+  			
+	//   <div className="flex flex-row">
+    //     {loggedIn (
+    //       <div
+	// 	  name='user-list'
+	// 	  className='flex flex-row'
+	//   >
+
+	// 	  <Filters
+	// 	  title='Player List'
+	// 		  posts={posts}
+	// 		  handleRank={handleRank}
+	// 		  clearFilters={clearFilters} 
+	// 		  isChecked={isChecked}
+	// 		  setIsChecked={setIsChecked}
+
+	// 	  />
+	//   </div>
+    //     )}
+    //     <div>
+    //       {loading ? (
+    //         <div>Loading...</div>
+    //       ) : (
+    //         <UserCard posts={posts} 
+	// 		title="Don't be discouraged to make the first post" />
+			 
+    //       )}
+    //     </div>
+    //     {loggedIn && userData ? (
+    //       <div className="col-12 col-lg-3 mb-3">
+    //         <FriendList
+    //           username={userData.me.username}
+    //           friendCount={userData.me.friendCount}
+    //           friends={userData.me.friends}
+    //         />
+    //       </div>
+	
+    //     ) : null}
+    //   </div>
+    // </main>
+
 	);
 };
 

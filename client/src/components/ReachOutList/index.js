@@ -1,22 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ReachOutList = ({ reactions }) => {
+const ReachOutList = ({ comments }) => {
   return (
     <div className="">
       <div className="">
         <span className="">Messages</span>
       </div>
       <div className="">
-        {reactions &&
-          reactions.map((reaction) => (
-            <p className="" key={reaction._id}>
-              {reaction.reactionBody} {"// "}
+        {comments &&
+          comments.map((comment) => (
+            <p className="" key={comment._id}>
+              {comment.commentBody} {"// "}
               <Link
-                to={`/profile/${reaction.username}`}
+                to={`/profile/${comment.username}`}
                 style={{ fontWeight: 700 }}
               >
-                {reaction.username} on {reaction.createdAt}
+                {comment.username} on {comment.createdAt}
               </Link>
             </p>
           ))}
