@@ -6,7 +6,6 @@ import UserCard from "../components/UserCard";
 import ReachOut from "../components/ReachOut";
 import ReachOutList from "../components/ReachOutList";
 import PostForm from '../components/PostForm';
-import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
@@ -81,7 +80,7 @@ const Profile = (props) => {
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <PostList
+          <UserCard
             thoughts={user.posts}
             title={`${user.username}'s posts...`}
           />
