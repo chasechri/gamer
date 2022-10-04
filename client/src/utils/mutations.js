@@ -29,9 +29,6 @@ export const ADD_POST = gql`
 		addPost(rank: $rank, platform: $platform, hours: $hours, comms: $comms) {
 			_id
 			rank
-			platform
-			hours
-			comms
 			createdAt
 			username
 			commentCount
