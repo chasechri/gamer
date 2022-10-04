@@ -15,9 +15,6 @@ const typeDefs = gql`
     createdAt: String
     username: String
     rank: String
-    platform: String
-    hours: String
-    comms: String
     commentCount: Int   
     comments: [Comment]
   }
@@ -40,11 +37,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    posts(username: String
-      rank: String
-      platform: String
-      hours: String
-      comms: String): [Post]
+    posts(username: String): [Post]
     post(_id: ID!): Post
   }
 
@@ -52,7 +45,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addComment(postId: ID!, commentBody: String!): Post
-    addPost(postId: ID!, rank: String!, platform: String!, hours: String!, comms: String!): Post
+    addPost(postId: ID!, rank: String!): Post
     addFriend(friendId: ID!): User
   }
 `;
