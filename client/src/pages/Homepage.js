@@ -1,105 +1,96 @@
 import React, { useEffect, useState } from 'react';
-import UserCard from '../components/UserCard';
 import Filters from '../components/Filters';
+import UserCard from "../components/UserCard";
 
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../utils/queries';
+import { QUERY_CARDS } from '../utils/queries';
 
 const Homepage = () => {
 	// using the query hook to make a request
-	const { loading, data } = useQuery(QUERY_POSTS);
-	// checking if there's data to post (if not then store it in empty array)
-	const initialPosts = data?.posts || [];
+	const { loading, data } = useQuery(QUERY_CARDS);
+	// checking if there's data to card (if not then store it in empty array)
+	const initialCards = data?.cards || [];
 
-	// will later make call to server to grab all players React.useEffect to call server to grab all players
+	console.log(initialCards)
 
 	const [isChecked, setIsChecked] = useState(false);
-	const [posts, setPosts] = useState(initialPosts);
-	useEffect(() => {
-		if (loading === false && posts) {
-			setPosts(initialPosts);
+	const [cards, setCards] = useState(initialCards);
+
+
+	function clearFilters(c) {
+		setIsChecked(isChecked);
+		console.log('setting to isChecked');
+		if (!isChecked) {
+			console.log('isChecked path');
+
+			setCards(data?.cards);
+		} else {
+			setIsChecked(isChecked);
+			setCards(data?.cards);
+			console.log('nothing checked');
 		}
-	}, [loading, data]);
-
-	function handleFilterClick(c) {}
-
-	// function clearFilters(c) {
-	// 	setIsChecked(isChecked);
-	// 	console.log('setting to isChecked');
-	// 	if (!isChecked) {
-	// 		console.log('isChecked path');
-
-	// 		setPosts(data?.posts);
-	// 	} else {
-	// 		setIsChecked(isChecked);
-	// 		setPosts(data?.posts);
-	// 		console.log('nothing checked');
-	// 	}
-	// }
+	}
 
 	function handleRank(rank) {
 		console.log('this is rank', rank.target.value);
 		setIsChecked(!isChecked);
 		if (!isChecked) {
 			console.log(rank.target.value);
-			setPosts(posts.filter((post) => post.rank === rank.target.value));
-			console.log(posts);
+			setCards(cards.filter((card) => card.rank === rank.target.value));
+			console.log(cards);
 		}
 		if (isChecked) {
-			setPosts(initialPosts);
+			setCards(initialCards);
 			console.log('isChecked = false working');
 		}
 	}
 
-	function handlePlatform(platform) {
-		setIsChecked(!isChecked);
-		if (!isChecked) {
-			console.log('isChecked = true working');
-			setPosts(posts.filter((post) => post.platform === platform.target.value));
-		}
-		if (isChecked) {
-			setPosts(initialPosts);
-			console.log('isChecked = false working');
-		}
-	}
+	// function handlePlatform(platform) {
+	// 	setIsChecked(!isChecked);
+	// 	if (!isChecked) {
+	// 		console.log('isChecked = true working');
+	// 		setCards(cards.filter((card) => card.platform === platform.target.value));
+	// 	}
+	// 	if (isChecked) {
+	// 		setCards(initialCards);
+	// 		console.log('isChecked = false working');
+	// 	}
+	// }
 
-	function handleHours(hours) {
-		setIsChecked(!isChecked);
-		if (!isChecked) {
-			console.log('isChecked = true working');
-			setPosts(posts.filter((post) => post.hours === hours.target.value));
-		}
-		if (isChecked) {
-			setPosts(initialPosts);
-			console.log('isChecked = false working');
-		}
-	}
+	// function handleHours(hours) {
+	// 	setIsChecked(!isChecked);
+	// 	if (!isChecked) {
+	// 		console.log('isChecked = true working');
+	// 		setCards(cards.filter((card) => card.hours === hours.target.value));
+	// 	}
+	// 	if (isChecked) {
+	// 		setCards(initialCards);
+	// 		console.log('isChecked = false working');
+	// 	}
+	// }
 
-	function handleComms(comms) {
-		setIsChecked(!isChecked);
-		if (!isChecked) {
-			console.log('isChecked = true working');
-			setPosts(posts.filter((post) => post.comms === comms.target.value));
-		}
-		if (isChecked) {
-			setPosts(initialPosts);
-			console.log('isChecked = false working');
-		}
-	}
-	// const { loading, data } = useQuery(QUERY_THOUGHTS)
-	// const { data: userData } = useQuery(QUERY_ME_BASIC)
-	// const users = data?.users || []
+	// function handleComms(comms) {
+	// 	setIsChecked(!isChecked);
+	// 	if (!isChecked) {
+	// 		console.log('isChecked = true working');
+	// 		setCards(cards.filter((card) => card.comms === comms.target.value));
+	// 	}
+	// 	if (isChecked) {
+	// 		setCards(initialCards);
+	// 		console.log('isChecked = false working');
+	// 	}
+	// }
 
 	return (
 		<main>
-			<div name='homepage' className='flex flex-row justify-around'>
+			<div name='user-list' className='flex flex-row justify-around'>
 				<Filters
-					title='Filter List'
+					title='Player List'
 					handleRank={handleRank}
-					handleHours={handleHours}
-					handlePlatform={handlePlatform}
-					handleComms={handleComms}
-					// clearFilters={clearFilters}
+					// handleHours={handleHours}
+					// handlePlatform={handlePlatform}
+					// handleComms={handleComms}
+					clearFilters={clearFilters}
 					isChecked={isChecked}
 					setIsChecked={setIsChecked}
 				/>
@@ -110,8 +101,8 @@ const Homepage = () => {
 					<div>Loading...</div>
 				) : (
 					<UserCard
-						posts={posts}
-						title="Don't be discouraged to make the first post"
+						cards={cards}
+						title="Don't be discouraged to make the first card"
 					/>
 				)}
 			</div>

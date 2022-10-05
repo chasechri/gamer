@@ -1,28 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserCard = ({ posts, title }) => {
-	if (!posts.length) {
-		return <h3> No Posts Yet</h3>;
+const UserCard = ({ cards, title }) => {
+	if (!cards.length) {
+		return <h3> No cards Yet</h3>;
 	}
 
 	return (
 		<div>
 			<h3>{title}</h3>
-			{posts &&
-				posts.map((post) => (
+			{cards &&
+				cards.map((card) => (
 					<div
-						key={post._id}
+						key={card._id}
 						className='container flex mx-10 py-5 px-5 my-2 bg-gray-300 items-center border-black border-2'
 					>
 						<div>
 							<h1 className='text-xl font-bold flex flex-row justify-around px-1'>
 								<Link
-									to={`/profile/${post.username}`}
+									to={`/profile/${card.username}`}
 									style={{ fontweight: 700 }}
 									className='text-light'
 								>
-									{post.username}
+									{card.username}
 								</Link>
 							</h1>
 						</div>
@@ -30,22 +30,22 @@ const UserCard = ({ posts, title }) => {
 						<div className='flex mx-5 grid-cols-5'>
 							<div className='flex-col justify-around'>
 								<h2 className='px-1 flex underline justify-center'>Rank</h2>{' '}
-								<p className='flex justify-center'>{post.rank}</p>
+								<p className='flex justify-center'>{card.rank}</p>
 							</div>
 
 							<div className='flex-col justify-between px-2'>
 								<h2 className=' px-1 flex justify-center'>Platform</h2>{' '}
-								<p className='flex justify-center'>{post.platform}</p>
+								<p className='flex justify-center'>{card.platform}</p>
 							</div>
 
 							<div className='flex-col justify-around px-2'>
 								<h2 className='px-1 flex justify-center'>Hours</h2>{' '}
-								<p className='flex justify-center'>{post.hours}</p>
+								<p className='flex justify-center'>{card.hours}</p>
 							</div>
 
 							<div className='flex-col justify-between px-2'>
 								<h2 className='flex justify-center'>Voicechat?</h2>{' '}
-								<p className='flex justify-center'>{post.comms}</p>
+								<p className='flex justify-center'>{card.comms}</p>
 							</div>
 
 							<button
@@ -57,9 +57,16 @@ const UserCard = ({ posts, title }) => {
 							</button>
 						</div>
 						<div>
+						<Link
+									to={`/profile/${card.username}`}
+									style={{ fontweight: 700 }}
+									className='text-light'
+								>
+									{card.username}
+								</Link>
 							<p>
-								Comments: {post.commentCount} || Click to{' '}
-								{post.commentCount ? 'see' : 'start'} the discussion!
+								Comments: {card.commentCount} || Click to{' '}
+								{card.commentCount ? 'see' : 'start'} the discussion!
 							</p>
 						</div>
 					</div>

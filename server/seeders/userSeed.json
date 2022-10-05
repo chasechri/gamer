@@ -3,42 +3,82 @@
         "username" : "LargeRifle777", 
         "email" : "largeandcharged@hotmail.com", 
         "password" : "kGjRfUNWUIRwfS_", 
-        "posts" : [],
-        "friends" : []
+        "card" : [
+            {
+                "username": "LargeRifle777",
+                "createdAt": "Feb 2"
+            }
+        ],
+        "friends" : [
+            {
+                "username": "ChokeMeLoba"
+            }
+        ],
+        "cardInfo" : [
+            {
+                "username":  "LargeRifle777", 
+                "rank": "Gold", 
+                "platform": "PS5", 
+                "hour": "PM", 
+                "voiceChat": "Yes"
+            }
+        ]
     },
     { 
         "username" : "ChokeMeLoba", 
         "email" : "lobaisqueen332@gmail.com", 
         "password" : "otK5YtXpcalD1cm", 
-        "posts" : [],
-        "friends" : []
+        "card" : [
+            {
+                "username": "ChokeMeLoba",
+                "createdAt": "July 28"
+            }
+        ],
+        "friends" : [
+            {
+                "username": "LargeRifle777"
+            }
+        ],
+        "cardInfo" : [
+            {
+                "username":  "ChokeMeLoba", 
+                "rank": "Platinum", 
+                "platform": "Xbox", 
+                "hour": "PM", 
+                "voiceChat": "No"
+            }
+        ]
     },
     { 
         "username" : "xXYoungPredatorXx", 
         "email" : "apexpredator32@hotmail.com", 
         "password" : "AP3EUTRZoxzsiHn", 
-        "posts" : [],
-        "friends" : []
+        "card" : [],
+        "friends" : [],
+        "cardInfo" : []
     },
     { 
         "username" : "KillaCastle", 
         "email" : "castlecage424@hotmail.com", 
         "password" : "sm0bZJCUaWqQs8k", 
-        "posts" : [],
-        "friends" : []
+        "card" : [],
+        "friends" : [],
+        "cardInfo" : []
     },
     { 
         "username" : "DropmeanR3", 
         "email" : "dredagod9045@hotmail.com", 
         "password" : "lPyRtzle1LjkjIe", 
-        "posts" : [],
-        "friends" : []
+        "card" : [],
+        "friends" : [],
+        "cardInfo" : []
     },
     { 
-        "username" : "CryppledbyGod", 
-        "email" : "crippledcrypto53@hotmail.com", 
+        "username" : "CriptoRepresent", 
+        "email" : "crippledcrypto32@hotmail.com", 
         "password" : "gKbsfF3M9jeBRcH", 
-        "posts" : [],
-        "friends" : []
+        "card" : [],
+        "friends" : [],
+        "cardInfo" : []
     }
 ]

@@ -1,73 +1,85 @@
 import { gql } from '@apollo/client'
 
-export const QUERY_POSTS = gql`
-	query posts($username: String) {
-		posts(username: $username) {
+export const QUERY_CARDS = gql`
+	query cards($username: String) {
+		cards(username: $username) {
 			_id
-			rank
-			platform
-			hours
-			comms
 			createdAt
 			username
-			commentCount
-			comments {
-				_id
-				createdAt
-				username
-				commentBody
-			}
-		}
-	}
-`
-
-export const QUERY_POST = gql`
-	query post($id: ID!) {
-		post(_id: $id) {
-			_id
-			rank
-			platform
-			hours
-			comms
-			createdAt
-			username
-			commentCount
-			comments {
-				_id
-				createdAt
-				username
-				commentBody
-			}
-		}
-	}
-`
-
-export const QUERY_USER = gql`
-	query user($username: String!) {
-		user(username: $username) {
-			_id
-			username
-			email
-			friendCount
-			friends {
+			cardInfo {
 				_id
 				username
-			}
-			posts {
-				_id
-				profiles {
-				gamertag
 				rank
 				platform
 				hours
-				comms
-			}
+				voiceChat
 				createdAt
-				commentCount
+			}
+			commentCount
+			comments {
+				_id
+				createdAt
+				username
+				commentBody
 			}
 		}
 	}
 `
+
+export const QUERY_CARD = gql`
+	query card($id: ID!) {
+		card(_id: $id) {
+			_id
+			createdAt
+			username
+			cardInfo {
+				_id
+				username
+				rank
+				platform
+				hours
+				voiceChat
+				createdAt
+			}
+			commentCount
+			comments {
+				_id
+				createdAt
+				username
+				commentBody
+			}
+		}
+	}
+`
+
+// export const QUERY_USER = gql`
+// 	query user($username: String!) {
+// 		user(username: $username) {
+// 			_id
+// 			username
+// 			email
+// 			friendCount
+// 			friends {
+// 				_id
+// 				username
+// 			}
+// 			cardInfo {
+// 				username
+// 				rank
+// 				platform
+// 				hours
+// 				voiceChat
+// 				createdAt
+// 			}
+// 			cards {
+// 				_id
+// 				username
+// 				createdAt
+// 				commentCount
+// 			}
+// 		}
+// 	}
+// `
 
 export const QUERY_ME = gql`
 	{
@@ -76,15 +88,8 @@ export const QUERY_ME = gql`
 			username
 			email
 			friendCount
-			posts {
+			cards {
 				_id
-				profiles {
-					gamertag
-					rank
-					platform
-					hours
-					comms
-				}
 				createdAt
 				commentCount
 				comments {
@@ -94,21 +99,14 @@ export const QUERY_ME = gql`
 					username
 				}
 			}
-			friends {
-				_id
+			cardInfo {
 				username
+				rank
+				platform
+				hours
+				voiceChat
+				createdAt
 			}
-		}
-	}
-`
-
-export const QUERY_ME_BASIC = gql`
-	{
-		me {
-			_id
-			username
-			email
-			friendCount
 			friends {
 				_id
 				username

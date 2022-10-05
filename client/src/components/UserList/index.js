@@ -7,7 +7,7 @@ import UserCard from '../UserCard'
 
 
 
-export default function UserList({ posts, players, handleRank, isChecked, handleHours, handlePlatform, handleComms, clearFilters }) {
+export default function UserList({ cards, players, handleRank, isChecked, handleHours, handlePlatform, handleComms, clearFilters }) {
 	// return players.map((user) => {
 	
 	return (

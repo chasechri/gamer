@@ -6,19 +6,25 @@ const typeDefs = gql`
     username: String
     email: String
     friendCount: Int
-    posts: [Post]
+    cards: [Card]
     friends: [User]
+    cardInfo: [CardInfo]
   }
 
-  type Post {
+  type CardInfo {
     _id: ID
-    createdAt: String
     username: String
     rank: String
     platform: String
     hours: String
-    comms: String
-    commentCount: Int   
+    voiceChat: String
+  }
+
+  type Card {
+    _id: ID
+    createdAt: String
+    username: String
+    commentCount: Int
     comments: [Comment]
   }
 
@@ -29,8 +35,6 @@ const typeDefs = gql`
     username: String
   }
 
-
-
   type Auth {
     token: ID!
     user: User
@@ -40,19 +44,16 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    posts(username: String
-      rank: String
-      platform: String
-      hours: String
-      comms: String): [Post]
-    post(_id: ID!): Post
+    cards(username: String): [Card]
+    card(_id: ID!): Card
+    cardInfo (username: String): [CardInfo]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addComment(postId: ID!, commentBody: String!): Post
-    addPost(postId: ID!, rank: String!, platform: String!, hours: String!, comms: String!): Post
+    addCard(rank: String!): Card
+    addComment(cardId: ID!, commentBody: String!): Card
     addFriend(friendId: ID!): User
   }
 `;

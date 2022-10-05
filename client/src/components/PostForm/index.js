@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_POST } from '../../utils/mutations';
-import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
+import { ADD_CARD } from '../../utils/mutations';
+import { QUERY_CARDS, QUERY_ME } from '../../utils/queries';
 
-const PostForm = () => {
+const CardForm = () => {
   const [ allValues, setText] = useState({
     rank: '', 
     platform: '',
@@ -13,8 +13,8 @@ const PostForm = () => {
   });
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addPost, { error }] = useMutation(ADD_POST, {
-    update(cache, { data: { addPost } }) {
+  const [addCard, { error }] = useMutation(ADD_CARD, {
+    update(cache, { data: { addCard } }) {
       
         // could potentially not exist yet, so wrap in a try/catch
       try {
@@ -22,17 +22,17 @@ const PostForm = () => {
         const { me } = cache.readQuery({ query: QUERY_ME });
         cache.writeQuery({
           query: QUERY_ME,
-          data: { me: { ...me, posts: [...me.posts, addPost] } },
+          data: { me: { ...me, cards: [...me.cards, addCard] } },
         });
       } catch (e) {
         console.warn("First thought insertion by user!")
       }
 
       // update thought array's cache
-      const { posts } = cache.readQuery({ query: QUERY_POSTS });
+      const { cards } = cache.readQuery({ query: QUERY_CARDS });
       cache.writeQuery({
-        query: QUERY_POSTS,
-        data: { thoughts: [addPost, ...posts] },
+        query: QUERY_CARDS,
+        data: { thoughts: [addCard, ...cards] },
       });
     }
   });
@@ -50,7 +50,7 @@ const PostForm = () => {
     event.preventDefault();
 
     try {
-      await addPost({
+      await addCard({
         variables: { allValues },
       });
 
@@ -88,4 +88,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default CardForm;

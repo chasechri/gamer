@@ -24,16 +24,21 @@ export const ADD_USER = gql`
 	}
 `
 
-export const ADD_POST = gql`
-	mutation addPost($rank: String!, $platform: String!, $hours: String!, $comms: String!) {
-		addPost(rank: $rank, platform: $platform, hours: $hours, comms: $comms) {
+export const ADD_CARD = gql`
+	mutation addCard($username: String!) {
+		addCard(: $rank, platform: $platform, hours: $hours, comms: $comms) {
 			_id
-			rank
-			platform
-			hours
-			comms
 			createdAt
 			username
+			cardInfo {
+				_id
+				username
+				rank
+				platform
+				hours
+				voiceChat
+				createdAt
+			}
 			commentCount
 			comments {
 				_id
@@ -43,8 +48,8 @@ export const ADD_POST = gql`
 `
 
 export const ADD_COMMENT = gql`
-	mutation addComment($postId: ID!, $commentBody: String!) {
-		addComment(postId: $postId, commentBody: $commentBody) {
+	mutation addComment($cardId: ID!, $commentBody: String!) {
+		addComment(cardId: $cardId, commentBody: $commentBody) {
 			_id
 			commentCount
 			comments {

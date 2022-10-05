@@ -1,4 +1,6 @@
 const User = require('./User');
-const Post = require('./Post');
+const Card = require('./Card');
+const Comment = require('./Comment');
+const CardInfo = require('./CardInfo');
 
-module.exports = { User, Post };
+module.exports = { User, Card, Comment, CardInfo};

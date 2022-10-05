@@ -20,16 +20,22 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
-    posts: [
+    cards: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Post'
+        ref: 'Card'
       }
     ],
     friends: [
       {
         type: Schema.Types.ObjectId,
         ref: 'User'
+      }
+    ],
+    cardInfo: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'CardInfo'
       }
     ]
   },

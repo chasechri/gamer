@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
+const { User, Card, CardInfo } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,8 +8,9 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('posts')
-          .populate('friends');
+          .populate('cards')
+          .populate('friends')
+          .populate('cardInfo');
 
         return userData;
       }
@@ -19,21 +20,26 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select('-__v -password')
-        .populate('posts')
-        .populate('friends');
+        .populate('cards')
+        .populate('friends')
+        .populate('cardInfo');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
-        .populate('posts');
+        .populate('cards')
+        .populate('cardInfo');
     },
-    posts: async (parent, { username }) => {
+    cards: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Post.find(params).sort({ createdAt: -1 });
+      return Card.find(params).sort({ createdAt: -1 });
     },
-    post: async (parent, { _id }) => {
-      return Post.findOne({ _id });
+    card: async (parent, { _id }) => {
+      return Card.findOne({ _id });
+    },
+    cardInfo: async (parent, { username }) => {
+      return CardInfo.findOne({ username });
     }
   },
 
@@ -60,30 +66,30 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPost: async (parent, args, context) => {
+    addCard: async (parent, args, context) => {
       if (context.user) {
-        const post = await Post.create({ ...args, username: context.user.username });
+        const card = await Card.create({ ...args, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { posts: post._id } },
+          { $push: { cards: card._id } },
           { new: true }
         );
 
-        return post;
+        return card;
       }
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { postId, commentBody }, context) => {
+    addComment: async (parent, { cardId, commentBody }, context) => {
       if (context.user) {
-        const updatedPost = await Post.findOneAndUpdate(
-          { _id: postId },
+        const updatedCard = await Card.findOneAndUpdate(
+          { _id: cardId },
           { $push: { comments: { commentBody, username: context.user.username } } },
           { new: true, runValidators: true }
         );
 
-        return updatedPost;
+        return updatedCard;
       }
 
       throw new AuthenticationError('You need to be logged in!');
