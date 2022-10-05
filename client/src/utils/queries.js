@@ -6,15 +6,10 @@ export const QUERY_CARDS = gql`
 			_id
 			createdAt
 			username
-			cardInfo {
-				_id
-				username
-				rank
-				platform
-				hours
-				voiceChat
-				createdAt
-			}
+			rank
+			platform
+			hours
+			voiceChat
 			commentCount
 			comments {
 				_id
@@ -32,15 +27,10 @@ export const QUERY_CARD = gql`
 			_id
 			createdAt
 			username
-			cardInfo {
-				_id
-				username
-				rank
-				platform
-				hours
-				voiceChat
-				createdAt
-			}
+			rank
+			platform
+			hours
+			voiceChat
 			commentCount
 			comments {
 				_id
@@ -52,34 +42,30 @@ export const QUERY_CARD = gql`
 	}
 `
 
-// export const QUERY_USER = gql`
-// 	query user($username: String!) {
-// 		user(username: $username) {
-// 			_id
-// 			username
-// 			email
-// 			friendCount
-// 			friends {
-// 				_id
-// 				username
-// 			}
-// 			cardInfo {
-// 				username
-// 				rank
-// 				platform
-// 				hours
-// 				voiceChat
-// 				createdAt
-// 			}
-// 			cards {
-// 				_id
-// 				username
-// 				createdAt
-// 				commentCount
-// 			}
-// 		}
-// 	}
-// `
+export const QUERY_USER = gql`
+	query user($username: String!) {
+		user(username: $username) {
+			_id
+			username
+			email
+			rank
+			platform
+			hours
+			voiceChat
+			friendCount
+			friends {
+				_id
+				username
+			}
+			cards {
+				_id
+				username
+				createdAt
+				commentCount
+			}
+		}
+	}
+`
 
 export const QUERY_ME = gql`
 	{
@@ -87,6 +73,10 @@ export const QUERY_ME = gql`
 			_id
 			username
 			email
+			rank
+			platform
+			hours
+			voiceChat
 			friendCount
 			cards {
 				_id
@@ -94,18 +84,11 @@ export const QUERY_ME = gql`
 				commentCount
 				comments {
 					_id
+					username
 					createdAt
 					commentBody
 					username
 				}
-			}
-			cardInfo {
-				username
-				rank
-				platform
-				hours
-				voiceChat
-				createdAt
 			}
 			friends {
 				_id

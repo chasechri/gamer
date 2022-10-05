@@ -10,36 +10,60 @@ db.once('open', async () => {
       username : "LargeRifle777", 
       email : "largeandcharged@hotmail.com", 
       password : "kGjRfUNWUIRwfS_", 
+      rank : "Gold", 
+      platform : "PS5", 
+      hours: "PM",
+      voiceChat: "Yes"
     });
   
     await User.create({
       username : "ChokeMeLoba", 
       email : "lobaisqueen332@gmail.com", 
       password : "otK5YtXpcalD1cm", 
+      rank : "Platinum", 
+      platform : "Xbox", 
+      hours: "PM",
+      voiceChat: "No"
     });
   
     await User.create({
       username : "xXYoungPredatorXx", 
       email : "apexpredator32@hotmail.com", 
       password : "AP3EUTRZoxzsiHn", 
+      rank : "Silver", 
+      platform : "Xbox", 
+      hours: "AM",
+      voiceChat: "Yes"
     });
   
     await User.create({
       username : "KillaCastle", 
       email : "castlecage424@hotmail.com", 
       password : "sm0bZJCUaWqQs8k", 
+      rank : "Predator", 
+      platform : "Xbox", 
+      hours: "AM",
+      voiceChat: "Yes"
     });
 
     await User.create({
       username : "DropmeanR3", 
       email : "dredagod9045@hotmail.com", 
       password : "lPyRtzle1LjkjIe", 
+      rank : "Master", 
+      platform : "PC", 
+      hours: "PM",
+      voiceChat: "No"
     });
   
     await User.create({
       username : "CriptoRepresent", 
       email : "crippledcrypto32@hotmail.com", 
       password : "gKbsfF3M9jeBRcH", 
+      rank : "Gold", 
+      platform : "PC", 
+      hours: "AM",
+      voiceChat: "Yes"
     });
 
     await Card.create({

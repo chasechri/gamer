@@ -10,7 +10,7 @@ const resolvers = {
           .select('-__v -password')
           .populate('cards')
           .populate('friends')
-          .populate('cardInfo');
+          //.populate('cardInfo');
 
         return userData;
       }
@@ -22,14 +22,14 @@ const resolvers = {
         .select('-__v -password')
         .populate('cards')
         .populate('friends')
-        .populate('cardInfo');
+        //.populate('cardInfo');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
         .populate('cards')
-        .populate('cardInfo');
+        //.populate('cardInfo');
     },
     cards: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -38,9 +38,9 @@ const resolvers = {
     card: async (parent, { _id }) => {
       return Card.findOne({ _id });
     },
-    cardInfo: async (parent, { username }) => {
-      return CardInfo.findOne({ username });
-    }
+    // cardInfo: async (parent, { username }) => {
+    //   return CardInfo.findOne({ username });
+    // }
   },
 
   Mutation: {

@@ -20,6 +20,22 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+    rank: {
+      type: String,
+      required: true
+    },
+    platform: {
+        type: String, 
+        required: true
+    },
+    hours: {
+        type: String, 
+        required: true
+    },
+    voiceChat: {
+        type: String, 
+        required: true
+    },
     cards: [
       {
         type: Schema.Types.ObjectId,
@@ -32,12 +48,12 @@ const userSchema = new Schema(
         ref: 'User'
       }
     ],
-    cardInfo: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'CardInfo'
-      }
-    ]
+    // cardInfo: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'CardInfo'
+    //   }
+    //]
   },
   {
     toJSON: {

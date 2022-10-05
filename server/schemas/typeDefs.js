@@ -46,7 +46,6 @@ const typeDefs = gql`
     user(username: String!): User
     cards(username: String): [Card]
     card(_id: ID!): Card
-    cardInfo (username: String): [CardInfo]
   }
 
   type Mutation {

@@ -15,6 +15,8 @@ const Profile = () => {
 
    const user = data?.me || {};
 
+   console.log(data)
+
   if (!user?.username) {
     return (
       <h4>
