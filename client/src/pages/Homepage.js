@@ -1,19 +1,22 @@
 import React, { useState } from 'react'
 import UserCard from '../components/UserCard';
 
+
 import Filters from '../components/Filters';
 
 
+
+
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../utils/queries';
+import { QUERY_POSTS} from '../utils/queries';
 
 const Homepage = () => {
 	// using the query hook to make a request 
 	const { loading, data } = useQuery(QUERY_POSTS);
 	
-
-
 	
+
+
 
 
 	// checking if there's data to post (if not then store it in empty array)
@@ -91,6 +94,9 @@ const Homepage = () => {
 					<UserCard posts={posts} title="Don't be discouraged to make the first post" />
 				)}
 			</div>
+			
+          
+        
 		
 		</main>
 	

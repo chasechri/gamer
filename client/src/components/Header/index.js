@@ -17,11 +17,12 @@ const Header = () => {
        <span> <FontAwesomeIcon icon={faHomeLg} ></FontAwesomeIcon> </span>
         </h1>
         </Link>
+        <Link to="/news">News</Link>
         <nav>
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile">Profile</Link>
-              <Link to="/single">POST</Link>
+              
               <a href="/" onClick={logout}>
                 Logout
               </a>
