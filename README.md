@@ -17,7 +17,7 @@
   Link to deployed site: https://gamer-6.herokuapp.com/
 
   ## Usage
-  ![Demo](/src/assets/small/demo.jpg?raw=true "My DEMO")
+  ![Demo](/src/assets/demo.jpg?raw=true "My DEMO")
 
   ## License
   No license used: https://choosealicense.com/no-permission/
