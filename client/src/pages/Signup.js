@@ -46,7 +46,7 @@ const Signup = () => {
           <div className="">
             <form onSubmit={handleFormSubmit}>
               <input
-                className="form-input"
+                className="form-input border-2 rounded mr-2 pl-2 border-slate-400"
                 placeholder="Your username"
                 name="username"
                 type="username"
@@ -55,7 +55,7 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input border-2 rounded mr-2 pl-2 border-slate-400"
                 placeholder="Your email"
                 name="email"
                 type="email"
@@ -64,7 +64,7 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input border-2 rounded mr-2 pl-2 border-slate-400"
                 placeholder="******"
                 name="password"
                 type="password"
@@ -72,7 +72,10 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="" type="submit">
+              <button
+                className="bg-slate-200 border-2 border-black hover:bg-slate-300 py-0"
+                type="submit"
+              >
                 Submit
               </button>
             </form>
