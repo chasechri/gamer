@@ -70,7 +70,7 @@ const UserForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder={'List rank or pubs'}
+          placeholder={rank}
           value={rank}
           onChange={handleChange}
         ></textarea>
