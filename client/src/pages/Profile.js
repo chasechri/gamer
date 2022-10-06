@@ -1,15 +1,18 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPerson, faUserFriends, faInbox } from '@fortawesome/free-solid-svg-icons';
 
-import UserCard from '../components/UserCard';
-import UserForm from '../components/UserForm';
 
-import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import UserCard from "../components/UserCard";
+import UserForm from "../components/UserForm";
+
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
 
 const Profile = () => {
+
 	const { username } = useParams();
 
 	const { data } = useQuery(QUERY_ME, {
