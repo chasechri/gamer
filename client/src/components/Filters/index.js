@@ -25,6 +25,7 @@ export default function Filters({
 								value={r}
 								type='checkbox'
 								onChange={handleRank}
+								className='form-checkbox rounded text-pink-500'
 							/>
 						</div>
 					);

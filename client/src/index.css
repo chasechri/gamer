@@ -31,18 +31,26 @@ main {
   padding-top: 20px;
 }
 
+div {
+  margin: auto;
+}
+
 h1 {
   flex: 0 1 auto;
   max-width: 200px;
+  text-transform: capitalize;
 }
 
 h2 {
   font-size: 1.5rem;
+  text-transform: capitalize;
 }
 
 h4 {
   font-size: 1.5rem;
+  text-transform: capitalize;
 }
+
 
 a {
   color: var(--icon);
@@ -63,10 +71,10 @@ button {
   padding: 0.5rem 1.2rem;
   margin: 5px 5;
   border-radius: 0.3rem;;
-  border: none;
-  color: darkmagenta;
+  border-color: black;
+  color: black;
   outline: none;
-  background-color: black;
+  background-color: white;
 }
 .card {
   text-align: center;
