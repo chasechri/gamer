@@ -4,6 +4,10 @@ const dateFormat = require('../utils/dateFormat');
 
 const cardSchema = new Schema(
   {
+    rank: {
+        type: String,
+        required: true
+    },
     createdAt: {
       type: Date,
       default: Date.now,

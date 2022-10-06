@@ -5,23 +5,19 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    friendCount: Int
-    cards: [Card]
-    friends: [User]
-    cardInfo: [CardInfo]
-  }
-
-  type CardInfo {
-    _id: ID
-    username: String
     rank: String
     platform: String
     hours: String
     voiceChat: String
+    friendCount: Int
+    cards: [Card]
+    friends: [User]
+    commentCount: Int
+    comments: [Comment]
   }
-
   type Card {
     _id: ID
+    rank: String
     createdAt: String
     username: String
     commentCount: Int

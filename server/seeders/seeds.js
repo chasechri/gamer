@@ -1,145 +1,149 @@
+const userSeeds = require('./userSeed.json');
+const cardSeeds = require('./cardSeed.json');
 const db = require('../config/connection');
-const { Card, User, CardInfo } = require('../models');
+const { Card, User } = require('../models');
 
-db.once('open', async () => {
-    await Card.deleteMany({});
-    await User.deleteMany({});
-    await CardInfo.deleteMany({});
+db.once("open", async () => {
+  await User.deleteMany();
+  await Card.deleteMany()
 
-    await User.create({
-      username : "LargeRifle777", 
-      email : "largeandcharged@hotmail.com", 
-      password : "kGjRfUNWUIRwfS_", 
-      rank : "Gold", 
-      platform : "PS5", 
-      hours: "PM",
-      voiceChat: "Yes"
-    });
-  
-    await User.create({
-      username : "ChokeMeLoba", 
-      email : "lobaisqueen332@gmail.com", 
-      password : "otK5YtXpcalD1cm", 
-      rank : "Platinum", 
-      platform : "Xbox", 
-      hours: "PM",
-      voiceChat: "No"
-    });
-  
-    await User.create({
-      username : "xXYoungPredatorXx", 
-      email : "apexpredator32@hotmail.com", 
-      password : "AP3EUTRZoxzsiHn", 
-      rank : "Silver", 
-      platform : "Xbox", 
-      hours: "AM",
-      voiceChat: "Yes"
-    });
-  
-    await User.create({
-      username : "KillaCastle", 
-      email : "castlecage424@hotmail.com", 
-      password : "sm0bZJCUaWqQs8k", 
-      rank : "Predator", 
-      platform : "Xbox", 
-      hours: "AM",
-      voiceChat: "Yes"
-    });
+  await User.create({
+    username : "LargeRifle777", 
+    email : "largeandcharged@hotmail.com", 
+    password : "kGjRfUNWUIRwfS_", 
+    rank: "Gold",
+    platform: "PS5",
+    hours: "PM",
+    voiceChat: "Yes",
+    cards : [],
+    friends : []
+  });
 
-    await User.create({
-      username : "DropmeanR3", 
-      email : "dredagod9045@hotmail.com", 
-      password : "lPyRtzle1LjkjIe", 
-      rank : "Master", 
-      platform : "PC", 
-      hours: "PM",
-      voiceChat: "No"
-    });
-  
-    await User.create({
-      username : "CriptoRepresent", 
-      email : "crippledcrypto32@hotmail.com", 
-      password : "gKbsfF3M9jeBRcH", 
-      rank : "Gold", 
-      platform : "PC", 
-      hours: "AM",
-      voiceChat: "Yes"
-    });
+  await User.create({
+    username : "ChokeMeLoba", 
+    email : "lobaisqueen332@gmail.com", 
+    password : "otK5YtXpcalD1cm", 
+    rank: "Platinum",
+    platform: "Xbox",
+    hours: "PM",
+    voiceChat: "Yes",
+    cards : [],
+    friends : []
+  });
 
-    await Card.create({
-      username : "LargeRifle777"
-    });
-  
-    await Card.create({
-      username : "ChokeMeLoba"
-    });
-  
-    await Card.create({
-      username : "xXYoungPredatorXx"
-    });
-  
-    await Card.create({
-      username : "KillaCastle"
-    });
+  await User.create({
+    username : "xXYoungPredatorXx", 
+    email : "apexpredator32@hotmail.com", 
+    password : "AP3EUTRZoxzsiHn", 
+    rank: "Silver",
+    platform: "Xbox",
+    hours: "AM",
+    voiceChat: "No",
+    cards : [],
+    friends : []
+  });
 
-    await Card.create({
-      username : "DropmeanR3"
-    });
-  
-    await Card.create({
-      username : "CriptoRepresent"
-    });
+  await User.create({
+    username : "KillaCastle", 
+    email : "castlecage424@hotmail.com", 
+    password : "sm0bZJCUaWqQs8k", 
+    rank: "Arenas",
+    platform: "PC",
+    hours: "AM",
+    voiceChat: "No",
+    cards : [],
+    friends : []
+  });
 
-    await CardInfo.create({
-      username : "LargeRifle777", 
-      rank : "Gold", 
-      platform : "PS5", 
-      hours: "PM",
-      voiceChat: "Yes"
-    });
-  
-    await CardInfo.create({
-      username : "ChokeMeLoba", 
-      rank : "Platinum", 
-      platform : "Xbox", 
-      hours: "PM",
-      voiceChat: "No"
-    });
-  
-    await CardInfo.create({
-      username : "xXYoungPredatorXx", 
-      rank : "Silver", 
-      platform : "Xbox", 
-      hours: "AM",
-      voiceChat: "Yes"
-    });
-  
-    await CardInfo.create({
-      username : "KillaCastle", 
-      rank : "Predator", 
-      platform : "Xbox", 
-      hours: "AM",
-      voiceChat: "Yes"
-    });
+  await User.create({
+    username : "DropmeanR3", 
+    email : "dredagod9045@hotmail.com", 
+    password : "lPyRtzle1LjkjIe", 
+    rank: "Predator",
+    platform: "PC",
+    hours: "PM",
+    voiceChat: "Yes",
+    cards : [],
+    friends : []
+  });
 
-    await CardInfo.create({
-      username : "DropmeanR3", 
-      rank : "Master", 
-      platform : "PC", 
-      hours: "PM",
-      voiceChat: "No"
-    });
-  
-    await CardInfo.create({
-      username : "CriptoRepresent", 
-      rank : "Gold", 
-      platform : "PC", 
-      hours: "AM",
-      voiceChat: "Yes"
-    });
+  await User.create({
+    username : "CriptoRepresent", 
+    email : "crippledcrypto32@hotmail.com", 
+    password : "gKbsfF3M9jeBRcH", 
+    rank: "Gold",
+    platform: "PS4",
+    hours: "PM",
+    voiceChat: "Yes",
+    cards : [],
+    friends : []
+  });
 
-  
+  const cards = await Card.insertMany([
+      {
+          rank: "pubs",
+          username : "LargeRifle777", 
+          comments : [ 
+              {
+                  commentBody : "Lets play gun game at 8", 
+                  username : "DropmeanR3"
+              } 
+          ] 
+      },
+      {
+          
+                   rank: "gold",
+          
+          username : "ChokeMeLoba", 
+          comments : [ ] 
+      },
+      {
+         
+                  
+                   rank: "plat",
+              
+          username : "xXYoungPredatorXx", 
+          comments : [ 
+              {
+                  commentBody : "Wanna play at like 9AM? I don't have to work", 
+                  username : "CryppledbyGod" 
+              }
+       ] 
+      },
+      {
+         
+                   rank: "Arenas",
+                   
+          username : "CryppledbyGod", 
+          comments : [ ] 
+      },
+      {
+                   rank: "master",
+             
+              
+          username : "DropmeanR3", 
+          comments : [ ] 
+      },
+      {
+          
+              
+                   rank: "pred",
+              
+          username : "KillaCastle", 
+          comments : [ 
+              {
+                  commentBody : "facilis et ipsum", 
+                  username : "DropmeanR3" 
+              },
+              {
+                  commentBody : "qui non aut nam porro cum repellendus a et ab laboriosam autem error ut ex incidunt sed consequatur autem", 
+                  username : "ChokeMeLoba" 
+              }
+          ]
+      }
+  ]);
 
-  console.log('all done!');
-  process.exit(0);
+  console.log("all done!");
+
+  process.exit();
 });

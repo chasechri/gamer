@@ -47,13 +47,7 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: 'User'
       }
-    ],
-    // cardInfo: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'CardInfo'
-    //   }
-    //]
+    ]
   },
   {
     toJSON: {

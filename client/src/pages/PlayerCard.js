@@ -1,14 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import ReachOutList from '../components/ReachOutList';
-import ReachOut from '../components/ReachOut';
+// import ReachOutList from '../components/ReachOutList';
+// import ReachOut from '../components/ReachOut';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_CARD } from '../utils/queries';
 
-const SingleThought = (props) => {
+const PlayerCard = (props) => {
   const { id: cardId } = useParams();
 
   const { loading, data } = useQuery(QUERY_CARD, {
@@ -37,13 +37,13 @@ const SingleThought = (props) => {
         </div>
       </div>
 
-      {card.commentCount > 0 && (
+      {/* {card.commentCount > 0 && (
         <ReachOutList comments={card.comments} />
       )}
 
-      {Auth.loggedIn() && <ReachOut cardId={card._id} />}
+      {Auth.loggedIn() && <ReachOut cardId={card._id} />} */}
     </div>
   );
 };
 
-export default SingleThought;
+export default PlayerCard;
