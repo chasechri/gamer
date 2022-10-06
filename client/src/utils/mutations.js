@@ -31,7 +31,7 @@ export const ADD_POST = gql`
       rank
       createdAt
       username
-      CommentCount
+      commentCount
       comments {
         _id
       }

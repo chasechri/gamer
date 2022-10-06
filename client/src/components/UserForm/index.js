@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
-const PostForm = () => {
+const UserForm = () => {
   const [ rank, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -70,12 +70,11 @@ const PostForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Here's a new thought..."
+          placeholder={'List rank or pubs'}
           value={rank}
-          className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <button type="submit">
           Submit
         </button>
       </form>
@@ -83,4 +82,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default UserForm;

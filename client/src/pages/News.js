@@ -1,31 +1,28 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPersonBooth } from "@fortawesome/free-solid-svg-icons";
 
 
-import ReachOutList from '../components/ReachOutList';
-import ReachOut from '../components/ReachOut';
+
+
+
+
 
 import { useQuery } from '@apollo/client';
-import { QUERY_USER  } from '../utils/queries';
-
+import { QUERY_ME,  } from '../utils/queries';
 
 
 
 const News = () => {
-    const { username } = useParams();
-  
-    const { data } = useQuery(QUERY_USER, {
-      variables: { username: username },
-    });
-  console.log(data);
+  const { username } = useParams();
 
-  const user = data?.user ||  {};
+  const { data } = useQuery(QUERY_ME, {
+    variables: { username: username },
+  });
 
-// navigate to personal profile page if username is yours
-if (user.username) {
-    return <Navigate to="/profile:username" />;
-  }
   
+  const user = data?.me ||  {};
 
   if (!user?.username) {
     return (
@@ -37,14 +34,19 @@ if (user.username) {
   }
 
   return (
-    <div>
-  
-  <div> <ReachOutList comments={user.comments} />
+    <div className='container flex mx-10 py-5 px-5 my-2 bg-gray-300 items-center border-black border-2'>
+    <h2 className='px-1 flex underline justify-center'> Welcome to {`${user.username}'s`} profile</h2>
+ 
+    <p className='flex justify-center'>{`${user.email}'s`}</p>
+    <p className='flex justify-center'>Friend Count{`${user.friendCount}'s`}</p>
+    
+    
+ 
+    <a href="https://www.ea.com/games/apex-legends/news#game-updates" target="_blank" rel="noopener noreferrer">
+        <FontAwesomeIcon icon= {faPersonBooth}></FontAwesomeIcon>
+      </a>
       
-
-      <ReachOut postId={user._id} />
-    </div>
-       
+      
     
   </div>
 

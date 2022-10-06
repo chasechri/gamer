@@ -16,7 +16,7 @@ const UserCard = ({ posts, title }) => {
                 <div>
 				<h1 className='text-xl font-bold flex flex-row justify-around px-1'>
 						<Link 
-							to={`/profile/${post.username}`}
+							to={`/news/${post.username}`}
 							style={{ fontweight: 700 }}
 							className="text-light"
 						>
