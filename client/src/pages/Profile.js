@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPersonBooth } from "@fortawesome/free-solid-svg-icons";
+import { faPerson } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -36,6 +36,10 @@ const Profile = () => {
   return (
     <div className='container flex mx-10 py-5 px-5 my-2 bg-gray-300 items-center border-black border-2'>
     <h2 className='px-1 flex underline justify-center'> Welcome to {`${user.username}'s`} profile</h2>
+
+    <a href="https://www.ea.com/games/apex-legends/news#game-updates" target="_blank" rel="noopener noreferrer">
+        <FontAwesomeIcon icon= {faPerson}></FontAwesomeIcon>
+      </a>
  
     <p className='flex justify-center'>{`${user.email}'s`}</p>
     <p className='flex justify-center'>Friend Count{`${user.friendCount}'s`}</p>
@@ -45,9 +49,6 @@ const Profile = () => {
       <UserForm />
     </div>
  
-    <a href="https://www.ea.com/games/apex-legends/news#game-updates" target="_blank" rel="noopener noreferrer">
-        <FontAwesomeIcon icon= {faPersonBooth}></FontAwesomeIcon>
-      </a>
       
    
     
