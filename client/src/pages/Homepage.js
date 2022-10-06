@@ -3,14 +3,17 @@ import UserCard from '../components/UserCard';
 import Filters from '../components/Filters';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../utils/queries';
+import { QUERY_POSTS, QUERY_ME } from '../utils/queries';
 
 const Homepage = () => {
 	// using the query hook to make a request
 	const { loading, data } = useQuery(QUERY_POSTS);
+	const { data: userData } = useQuery(QUERY_ME);
 	// checking if there's data to post (if not then store it in empty array)
+	const users = userData?.user || [];
+	console.log(users);
 	const initialPosts = data?.posts || [];
-
+	console.log(initialPosts);
 	// will later make call to server to grab all players React.useEffect to call server to grab all players
 
 	const [isChecked, setIsChecked] = useState(false);
@@ -91,8 +94,8 @@ const Homepage = () => {
 	// const users = data?.users || []
 
 	return (
-		<main>
-			<div name='homepage' className='flex flex-row justify-around'>
+		<main name='homepage' className='flex-col py-20'>
+			<div className='flex-row'>
 				<Filters
 					title='Filter List'
 					handleRank={handleRank}
@@ -105,7 +108,7 @@ const Homepage = () => {
 				/>
 			</div>
 
-			<div>
+			<div className='flex flex-row justify-around container '>
 				{loading ? (
 					<div>Loading...</div>
 				) : (
