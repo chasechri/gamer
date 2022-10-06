@@ -25,62 +25,58 @@ export const ADD_USER = gql`
 `
 
 export const ADD_POST = gql`
-	mutation addPost($rank: String!, $platform: String!, $hours: String!, $comms: String!) {
-		addPost(rank: $rank, platform: $platform, hours: $hours, comms: $comms) {
-			_id
-			rank
-			platform
-			hours
-			comms
-			createdAt
-			username
-			commentCount
-			comments {
-				_id
-			}
-		}
-	}
-`
+  mutation addPost($rank: String!) {
+    addPost(rank: $rank) {
+      _id
+      rank
+      createdAt
+      username
+      commentCount
+      comments {
+        _id
+      }
+    }
+  }
+`;
 
 export const ADD_COMMENT = gql`
-	mutation addComment($postId: ID!, $commentBody: String!) {
-		addComment(postId: $postId, commentBody: $commentBody) {
-			_id
-			commentCount
-			comments {
-				_id
-				commentBody
-				createdAt
-				username
-			}
-		}
-	}
-`
-
+  mutation addComment($postId: ID!, $commentBody: String!) {
+    addComment(postId: $postId, commentBody: $commentBody) {
+      _id
+      commentCount
+      comments {
+        _id
+        commentBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
 
 export const ADD_FRIEND = gql`
-	mutation addFriend($id: ID!) {
-		addFriend(friendId: $id) {
-			_id
-			username
-			friendCount
-			friends {
-				_id
-				username
-			}
-		}
-	}
-`
+  mutation addFriend($id: ID!) {
+    addFriend(friendId: $id) {
+      _id
+      username
+      friendCount
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;
 
 export const REMOVE_FRIEND = gql`
-	mutation removeFriend($id: ID!) {
-		removeFriend(id: $id) {
-			_id
-			username
-			friends {
-				_id
-				username
-			}
-		}
-	}
-`
+  mutation removeFriend($id: ID!) {
+    removeFriend(id: $id) {
+      _id
+      username
+      friends {
+        _id
+        username
+      }
+    }
+  }
+`;

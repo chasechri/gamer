@@ -2,8 +2,15 @@ import React, { useEffect, useState } from 'react';
 import UserCard from '../components/UserCard';
 import Filters from '../components/Filters';
 
-import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../utils/queries';
+
+import Filters from '../components/Filters';
+
+
+
+
+import { useQuery} from '@apollo/client';
+
+import { QUERY_POSTS} from '../utils/queries';
 
 const Homepage = () => {
 	// using the query hook to make a request
@@ -18,27 +25,14 @@ const Homepage = () => {
 	useEffect(() => {
 		if (loading === false && posts) {
 			setPosts(initialPosts);
+
 		}
 	}, [loading, data]);
 
-	function handleFilterClick(c) {}
-
-	// function clearFilters(c) {
-	// 	setIsChecked(isChecked);
-	// 	console.log('setting to isChecked');
-	// 	if (!isChecked) {
-	// 		console.log('isChecked path');
-
-	// 		setPosts(data?.posts);
-	// 	} else {
-	// 		setIsChecked(isChecked);
-	// 		setPosts(data?.posts);
-	// 		console.log('nothing checked');
-	// 	}
-	// }
 
 	function handleRank(rank) {
 		console.log('this is rank', rank.target.value);
+
 		setIsChecked(!isChecked);
 		if (!isChecked) {
 			console.log(rank.target.value);
@@ -100,6 +94,7 @@ const Homepage = () => {
 					handlePlatform={handlePlatform}
 					handleComms={handleComms}
 					// clearFilters={clearFilters}
+
 					isChecked={isChecked}
 					setIsChecked={setIsChecked}
 				/>
@@ -109,13 +104,17 @@ const Homepage = () => {
 				{loading ? (
 					<div>Loading...</div>
 				) : (
+
 					<UserCard
 						posts={posts}
 						title="Don't be discouraged to make the first post"
 					/>
 				)}
 			</div>
+
 		</main>
+	
+
 	);
 };
 

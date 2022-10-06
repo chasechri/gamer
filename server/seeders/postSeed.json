@@ -1,9 +1,6 @@
 [
     {
         "rank": "pubs",
-        "platform": "PS5",
-        "hours": "PM",
-        "comms": "yes",
         "username" : "LargeRifle777", 
         "comments" : [ 
             {
@@ -15,9 +12,6 @@
     {
         
                  "rank": "gold",
-                 "platform": "PS4",
-                 "hours": "PM",
-                 "comms": "yes",
           
         "username" : "ChokeMeLoba", 
         "comments" : [ ] 
@@ -26,9 +20,6 @@
        
                 
                  "rank": "plat",
-                 "platform": "PC",
-                 "hours": "AM",
-                 "comms": "No",
             
         "username" : "xXYoungPredatorXx", 
         "comments" : [ 
@@ -40,18 +31,14 @@
     },
     {
        
-                 "rank": "pubs",
-                 "platform": "PC",
-                 "hours": "PM",
-                 "comms": "yes",
-        "username" : "LargeRifle777", 
+                 "rank": "Arenas",
+                 
+        "username" : "CryppledbyGod", 
         "comments" : [ ] 
     },
     {
                  "rank": "master",
-                 "platform": "XBOX",
-                 "hours": "PM",
-                 "comms": "yes",
+           
             
         "username" : "DropmeanR3", 
         "comments" : [ ] 
@@ -60,9 +47,6 @@
         
             
                  "rank": "pred",
-                 "platform": "Switch",
-                 "hours": "PM",
-                 "comms": "Ping",
             
         "username" : "KillaCastle", 
         "comments" : [ 

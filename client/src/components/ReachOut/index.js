@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_COMMENT } from "../../utils/mutations";
 
-const ReachOut = ({ thoughtId }) => {
+const ReachOut = ({ postId }) => {
   const [commentBody, setBody] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
   const [addComment, { error }] = useMutation(ADD_COMMENT);
@@ -19,7 +19,7 @@ const ReachOut = ({ thoughtId }) => {
 
     try {
       await addComment({
-        variables: { commentBody, thoughtId },
+        variables: { commentBody, postId },
       });
 
       setBody("");

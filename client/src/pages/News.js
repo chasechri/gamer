@@ -11,14 +11,14 @@ import UserForm from '../components/UserForm';
 
 
 import { useQuery } from '@apollo/client';
-import { QUERY_ME,  } from '../utils/queries';
+import { QUERY_POST,  } from '../utils/queries';
 
 
 
-const Profile = () => {
+const News = () => {
   const { username } = useParams();
 
-  const { data } = useQuery(QUERY_ME, {
+  const { data } = useQuery(QUERY_POST, {
     variables: { username: username },
   });
   
@@ -43,6 +43,10 @@ const Profile = () => {
  
     <p className='flex justify-center'>{`${user.email}'s`}</p>
     <p className='flex justify-center'>Friend Count{`${user.friendCount}'s`}</p>
+    <a href="https://www.ea.com/games/apex-legends/news#game-updates" target="_blank" rel="noopener noreferrer">
+        <FontAwesomeIcon icon= {faPerson}></FontAwesomeIcon>
+      </a>
+      
     <div> <UserCard posts={user.posts} />
       <p>testing</p>
 
@@ -59,4 +63,4 @@ const Profile = () => {
 };
 
 
-export default Profile;
+export default News;

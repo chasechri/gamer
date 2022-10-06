@@ -4,13 +4,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
-const PostForm = () => {
-  const [ allValues, setText] = useState({
-    rank: '', 
-    platform: '',
-    hours: '',
-    comms: ''
-  });
+const UserForm = () => {
+  const [ rank, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addPost, { error }] = useMutation(ADD_POST, {
@@ -32,7 +27,7 @@ const PostForm = () => {
       const { posts } = cache.readQuery({ query: QUERY_POSTS });
       cache.writeQuery({
         query: QUERY_POSTS,
-        data: { thoughts: [addPost, ...posts] },
+        data: { posts: [addPost, ...posts] },
       });
     }
   });
@@ -51,7 +46,7 @@ const PostForm = () => {
 
     try {
       await addPost({
-        variables: { allValues },
+        variables: { rank },
       });
 
       // clear form value
@@ -75,12 +70,11 @@ const PostForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Here's a new thought..."
-          value={allValues}
-          className="form-input col-12 col-md-9"
+          placeholder={'List rank or pubs'}
+          value={rank}
           onChange={handleChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <button type="submit">
           Submit
         </button>
       </form>
@@ -88,4 +82,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default UserForm;
