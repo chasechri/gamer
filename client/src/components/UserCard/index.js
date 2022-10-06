@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useQuery, useMutation } from '@apollo/client';
+// import { useMutation } from '@apollo/client';
 // import { DELETE_POST } from '../../utils/mutations';
-// import { QUERY_POSTS } from '../../utils/queries';
 
-const UserCard = ( posts, title) => {
-	// const { data } = useQuery(QUERY_POSTS);
+const UserCard = ( {posts, title} ) => {
+
+//To be used in future development (deletePost)
 	// const [deletePost, { error }] = useMutation(DELETE_POST);
-	// const posts = data?.post || {};
 
 	// const handleDeletePost = async (postId) => {
 	// 	try {

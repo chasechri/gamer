@@ -79,6 +79,22 @@ db.once("open", async () => {
     friends : []
   });
 
+  await User.create({
+    username : "GibbysDumper", 
+    email : "thiccsamoanboi444@hotmail.com", 
+    password : "Jo3EsnsZoSURiHn", 
+    posts : [],
+    friends : []
+  });
+
+  await User.create({
+    username : "Heartbreaker23", 
+    email : "hoiboi34@hotmail.com", 
+    password : "HirEsnsZofejhHn", 
+    posts : [],
+    friends : []
+  });
+
   const posts = await Post.insertMany([
       {
           rank: "Gold",
@@ -146,6 +162,22 @@ db.once("open", async () => {
                   username : "ChokeMeLoba" 
               }
           ]
+      },
+      {
+        rank: "Predator",
+        platform: "PS4",
+        hours: "AM",
+        voiceChat: "Yes",
+        username : "GibbysDumper", 
+        comments : [] 
+      },
+      {
+        rank: "Silver",
+        platform: "PS5",
+        hours: "AM",
+        voiceChat: "No",
+        username : "Heartbreaker23", 
+        comments : [] 
       }
   ]);
 
