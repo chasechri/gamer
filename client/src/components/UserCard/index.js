@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserCard = ({ posts, title }) => {
-	if (!posts.length) {
-		return <h3> No Posts Yet</h3>;
-	}
-
+    if (!posts.length) {
+        return <h3> No Posts Yet</h3>;
+    }
 	return (
 		<div id='user-card'>
 			<h3>{title}</h3>

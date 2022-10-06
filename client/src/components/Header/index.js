@@ -5,45 +5,40 @@ import { faHomeLg } from '@fortawesome/free-solid-svg-icons';
 import Auth from '../../utils/auth';
 
 const Header = () => {
-	const logout = (event) => {
-		event.preventDefault();
-		Auth.logout();
-	};
-	return (
-		<header className=''>
-			<div>
-				<Link to='/'>
-					<h1>
-						{' '}
-						Gamer
-						<span>
-							{' '}
-							<FontAwesomeIcon icon={faHomeLg}></FontAwesomeIcon>{' '}
-						</span>
-					</h1>
-				</Link>
-				<nav className='flex flex-row'>
-					{Auth.loggedIn() ? (
-						<>
-							<Link to='/profile'>Me</Link>
-							<a href='/' onClick={logout}>
-								Logout
-							</a>
-						</>
-					) : (
-						<>
-							<div>
-								<Link to='/login'>Login</Link>
-							</div>
-							<div className='flex mx-5 flex-row'>
-								<Link to='/signup'>Signup</Link>
-							</div>
-						</>
-					)}
-				</nav>
-			</div>
-		</header>
-	);
+
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+  return (
+    <header>
+      <div>
+      <Link to="/">
+        <h1> Gamer
+       <span> <FontAwesomeIcon icon={faHomeLg} ></FontAwesomeIcon> </span>
+        </h1>
+        </Link>
+        <Link to="/news">News</Link>
+        <nav>
+          {Auth.loggedIn() ? (
+            <>
+              <Link to="/profile">Profile</Link>
+              
+              <a href="/" onClick={logout}>
+                Logout
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+            </>
+          )}
+        </nav>
+      </div>
+    </header>
+  );
+
 };
 
 export default Header;

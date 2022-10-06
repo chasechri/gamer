@@ -1,7 +1,6 @@
-// import logo from "./logo.svg";
-
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { setContext } from '@apollo/client/link/context';
 
 import {
   ApolloClient,
@@ -13,55 +12,33 @@ import {
 import './index.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Homepage from './pages/Homepage';
+import Home from './pages/Homepage';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
+import News from './pages/News';
 
 const httpLink = createHttpLink({
-	uri: '/graphql',
-  });
-  
-  const client = new ApolloClient({
-	link: httpLink,
-	cache: new InMemoryCache(),
-  });
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 
-// const [players, setPlayers] = useState([
-// 	{
-// 		username: 'Gamertag',
-// 		rank: 'Casual',
-// 		platform: 'PC',
-// 		hours: 'AM',
-// 		comms: 'Y',
-// 	},
-// 	{
-// 		username: 'Gamertag',
-// 		rank: 'Gold',
-// 		platform: 'PS5',
-// 		hours: 'PM',
-// 		comms: 'Y',
-// 	},
-// ])
-
-// function handleRank() {
-// 	setPlayers(players.filter((player) => player.rank === filter)
-	
-// }
-
-// function handlePlatform() {
-// 	setPlayers(players.filter((player) => player.platform === filter)	
-// }
-
-// function handleHours() {
-// 	setPlayers(players.filter((player) => player.hours === filter)
-// }
-
-// function handleComms() {
-// 	setPlayers(players.filter((player) => player.comms === filter)
-// }
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -73,7 +50,7 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={<Homepage />}
+                element={<Home />}
               />
               <Route
                 path="/login"
@@ -83,11 +60,14 @@ function App() {
                 path="/signup"
                 element={<Signup />}
               />
+             <Route 
+                path="/profile" 
+                element={<Profile />} 
+              />
               <Route 
-                path="/profile">
-                <Route path=":username" element={<Profile />} />
-                <Route path="" element={<Profile />} />
-              </Route>
+                path="/news" 
+                element={<News />} 
+              />
               <Route
               path="*"
               element={<NoMatch />}

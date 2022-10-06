@@ -8,19 +8,6 @@ const postSchema = new Schema(
         type: String,
         required: true
     },
-    platform: {
-        type: String, 
-        required: true
-    },
-    hours: {
-        type: String, 
-        required: true
-    },
-    comms: {
-        type: String, 
-        required: true
-    },
-
     createdAt: {
       type: Date,
       default: Date.now,
