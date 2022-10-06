@@ -63,11 +63,13 @@ const Homepage = () => {
 		}
 	}
 
-	function handleComms(comms) {
+	function handleComms(voiceChat) {
 		setIsChecked(!isChecked);
 		if (!isChecked) {
 			console.log('isChecked = true working');
-			setPosts(posts.filter((post) => post.comms === comms.target.value));
+			setPosts(
+				posts.filter((post) => post.voiceChat === voiceChat.target.value),
+			);
 		}
 		if (isChecked) {
 			setPosts(originalPosts);
@@ -107,10 +109,7 @@ const Homepage = () => {
 				{loading ? (
 					<div>Loading...</div>
 				) : (
-					<UserCard
-						posts={posts}
-						title="Don't be discouraged to make the first post"
-					/>
+					<UserCard posts={posts} title='Your future squad is below!' />
 				)}
 			</div>
 		</main>

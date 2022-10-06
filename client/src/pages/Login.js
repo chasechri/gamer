@@ -34,14 +34,14 @@ const Login = (props) => {
 	};
 
 	return (
-		<main className=''>
-			<div className=''>
-				<div className=''>
-					<h4 className=''>Login</h4>
-					<div className=''>
+		<main className='py-40 mx-auto align-center flex-row'>
+			<div className='content-around mx-auto'>
+				<div className='flex flex-row border-black border-2 rounded-xl pr-5'>
+					<h4 className='flex px-4 my-2'>Login</h4>
+					<div className='flex-row'>
 						<form onSubmit={handleFormSubmit}>
 							<input
-								className='form-input'
+								className='form-input flex-row border-gray border-2 mx-1'
 								placeholder='Your email'
 								name='email'
 								type='email'
@@ -50,7 +50,7 @@ const Login = (props) => {
 								onChange={handleChange}
 							/>
 							<input
-								className='form-input'
+								className='form-input flex-row border-gray border-2 mx-1'
 								placeholder='******'
 								name='password'
 								type='password'
@@ -58,7 +58,7 @@ const Login = (props) => {
 								value={formState.password}
 								onChange={handleChange}
 							/>
-							<button className='button' type='submit'>
+							<button className='button flex-row mx-2' type='submit'>
 								Submit
 							</button>
 						</form>

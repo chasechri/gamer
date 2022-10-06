@@ -7,9 +7,9 @@ export default function Filters({
 	handleComms,
 	clearFilters,
 }) {
-	const ranks = ['pubs', 'gold', 'plat', 'master', 'pred'];
+	const ranks = ['Silver', 'Gold', 'Platinum', 'Predator'];
 	const hours = ['AM', 'PM'];
-	const comms = ['yes', 'no', 'ping'];
+	const voiceChat = ['Yes', 'No', 'Ping'];
 	const platform = ['PC', 'PS4', 'PS5', 'XBOX'];
 	return (
 		<div id='filters' className='flex'>
@@ -42,7 +42,7 @@ export default function Filters({
 				})}
 			</div>
 			<div className='flex border-black border-2 mx-1'>
-				{comms.map((c, index) => {
+				{voiceChat.map((c, index) => {
 					return (
 						<div key={index} id='filter-group' className='flex-col px-5 mx-1'>
 							<h2>{c}</h2>

@@ -14,10 +14,8 @@ const Header = () => {
 			<div className='flex flex-row px-4'>
 				<Link to='/'>
 					<h1>
-					
 						Apex
 						<span>
-							
 							<FontAwesomeIcon icon={faHomeLg}></FontAwesomeIcon>
 						</span>
 					</h1>
