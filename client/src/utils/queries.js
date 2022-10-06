@@ -5,6 +5,9 @@ export const QUERY_POSTS = gql`
 		posts(username: $username) {
 			_id
 			rank
+      platform
+      hours
+      voiceChat
 			createdAt
 			username
 			commentCount
@@ -23,6 +26,9 @@ export const QUERY_POST = gql`
     post(_id: $id) {
       _id
       rank
+      platform
+      hours
+      voiceChat
       createdAt
       username
       commentCount
@@ -42,9 +48,6 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      platform
-      hours
-      voiceChat
       friendCount
       friends {
         _id
@@ -53,6 +56,9 @@ export const QUERY_USER = gql`
       posts {
         _id
         rank
+        platform
+        hours
+        voiceChat
         createdAt
         commentCount
       }
@@ -67,13 +73,13 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      platform
-      hours
-      voiceChat
       friendCount
       posts {
         _id
         rank
+        platform
+        hours
+        voiceChat
         createdAt
         commentCount
         comments {

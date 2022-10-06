@@ -11,10 +11,10 @@ db.once("open", async () => {
     username : "LargeRifle777", 
     email : "largeandcharged@hotmail.com", 
     password : "kGjRfUNWUIRwfS_", 
-    rank: "Gold",
-    platform: "PS5",
-    hours: "PM",
-    voiceChat: "Yes",
+    // rank: "Gold",
+    // platform: "PS5",
+    // hours: "PM",
+    // voiceChat: "Yes",
     posts : [],
     friends : []
   });
@@ -23,10 +23,10 @@ db.once("open", async () => {
     username : "ChokeMeLoba", 
     email : "lobaisqueen332@gmail.com", 
     password : "otK5YtXpcalD1cm", 
-    rank: "Platinum",
-    platform: "Xbox",
-    hours: "PM",
-    voiceChat: "Yes",
+    // rank: "Platinum",
+    // platform: "Xbox",
+    // hours: "PM",
+    // voiceChat: "Yes",
     posts : [],
     friends : []
   });
@@ -35,10 +35,10 @@ db.once("open", async () => {
     username : "xXYoungPredatorXx", 
     email : "apexpredator32@hotmail.com", 
     password : "AP3EUTRZoxzsiHn", 
-    rank: "Silver",
-    platform: "Xbox",
-    hours: "AM",
-    voiceChat: "No",
+    // rank: "Silver",
+    // platform: "Xbox",
+    // hours: "AM",
+    // voiceChat: "No",
     posts : [],
     friends : []
   });
@@ -47,10 +47,10 @@ db.once("open", async () => {
     username : "KillaCastle", 
     email : "castlecage424@hotmail.com", 
     password : "sm0bZJCUaWqQs8k", 
-    rank: "Arenas",
-    platform: "PC",
-    hours: "AM",
-    voiceChat: "No",
+    // rank: "Arenas",
+    // platform: "PC",
+    // hours: "AM",
+    // voiceChat: "No",
     posts : [],
     friends : []
   });
@@ -59,10 +59,10 @@ db.once("open", async () => {
     username : "DropmeanR3", 
     email : "dredagod9045@hotmail.com", 
     password : "lPyRtzle1LjkjIe", 
-    rank: "Predator",
-    platform: "PC",
-    hours: "PM",
-    voiceChat: "Yes",
+    // rank: "Predator",
+    // platform: "PC",
+    // hours: "PM",
+    // voiceChat: "Yes",
     posts : [],
     friends : []
   });
@@ -71,17 +71,20 @@ db.once("open", async () => {
     username : "CriptoRepresent", 
     email : "crippledcrypto32@hotmail.com", 
     password : "gKbsfF3M9jeBRcH", 
-    rank: "Gold",
-    platform: "PS4",
-    hours: "PM",
-    voiceChat: "Yes",
+    // rank: "Gold",
+    // platform: "PS4",
+    // hours: "PM",
+    // voiceChat: "Yes",
     posts : [],
     friends : []
   });
 
   const posts = await Post.insertMany([
       {
-          rank: "pubs",
+          rank: "Gold",
+          platform: "PS5",
+          hours: "PM",
+          voiceChat: "Yes",
           username : "LargeRifle777", 
           comments : [ 
               {
@@ -91,17 +94,18 @@ db.once("open", async () => {
           ] 
       },
       {
-          
-                   rank: "gold",
-          
+          rank: "Platinum",
+          platform: "Xbox",
+          hours: "PM",
+          voiceChat: "Yes",
           username : "ChokeMeLoba", 
-          comments : [ ] 
+          comments : [] 
       },
-      {
-         
-                  
-                   rank: "plat",
-              
+      {         
+          rank: "Silver",
+          platform: "Xbox",
+          hours: "AM",
+          voiceChat: "No",
           username : "xXYoungPredatorXx", 
           comments : [ 
               {
@@ -111,24 +115,26 @@ db.once("open", async () => {
        ] 
       },
       {
-         
-                   rank: "Arenas",
-                   
-          username : "CryppledbyGod", 
+          rank: "Gold",
+          platform: "PS4",
+          hours: "PM",
+          voiceChat: "Yes",         
+          username : "CriptoRepresent", 
           comments : [ ] 
       },
       {
-                   rank: "master",
-             
-              
+          rank: "Predator",
+          platform: "PC",
+          hours: "PM",
+          voiceChat: "Yes",   
           username : "DropmeanR3", 
           comments : [ ] 
       },
       {
-          
-              
-                   rank: "pred",
-              
+          rank: "Platinum",
+          platform: "PC",
+          hours: "AM",
+          voiceChat: "No",
           username : "KillaCastle", 
           comments : [ 
               {
