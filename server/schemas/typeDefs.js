@@ -5,6 +5,9 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    platform: String
+    hours: String
+    voiceChat: String
     friendCount: Int
     posts: [Post]
     friends: [User]

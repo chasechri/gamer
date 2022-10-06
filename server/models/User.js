@@ -20,6 +20,18 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+      platform: {
+        type: String, 
+        required: true
+    },
+    hours: {
+        type: String, 
+        required: true
+    },
+    voiceChat: {
+        type: String, 
+        required: true
+    },
     posts: [
       {
         type: Schema.Types.ObjectId,
