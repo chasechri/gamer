@@ -48,7 +48,7 @@ const UserCard = ({ posts, title }) => {
 
 							<div className='flex-col justify-around px-2'>
 								<h2 className='flex underline justify-center'>Voicechat?</h2>{' '}
-								<p className='capitalize flex justify-center'>{post.comms}</p>
+								<p className='capitalize flex justify-center'>{post.voiceChat}</p>
 							</div>
 
 							<div className='flex flex-row justify-between px-2'>
