@@ -75,7 +75,7 @@ const UserForm = () => {
           value={rank}
           onChange={handleChange}
         ></textarea>
-        <button type="submit">
+        <button  type="submit">
           Submit
         </button>
       </form>

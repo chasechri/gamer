@@ -91,10 +91,23 @@ button {
   text-align: center;
 }
 
+.card-profile {
+  background-color: var(--icon);
+  padding: 20px;
+  margin: 20px;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 2.0rem;
+
+}
+
 .login {
   background-color: var(--icon);
   padding: 20px;
 }
+
 
 .filter {
   display: flex;
