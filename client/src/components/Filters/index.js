@@ -9,7 +9,7 @@ export default function Filters({
 }) {
 	const ranks = ['Silver', 'Gold', 'Platinum', 'Predator'];
 	const hours = ['AM', 'PM'];
-	const comms = ['Yes', 'No', 'Ping'];
+	const comms = ['Yes', 'No'];
 	const platform = ['PC', 'PS4', 'PS5', 'XBOX'];
 	return (
 		<div id='filters' className='flex'>

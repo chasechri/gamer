@@ -1,7 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import { useMutation } from '@apollo/client';
+// import { DELETE_POST } from '../../utils/mutations';
 
-const UserCard = ({ posts, title }) => {
+const UserCard = ( {posts, title} ) => {
+
+//To be used in future development (deletePost)
+	// const [deletePost, { error }] = useMutation(DELETE_POST);
+
+	// const handleDeletePost = async (postId) => {
+	// 	try {
+	// 		await deletePost({
+	// 			variables: { postId }
+	// 		});
+	// 	} catch (e) {
+	// 		console.error(e);
+	// 	}
+	// };
+
 	if (!posts.length) {
 		return <h3> No Posts Yet</h3>;
 	}
@@ -59,9 +75,9 @@ const UserCard = ({ posts, title }) => {
 								{/* <button
 									className='bg-black text-white rounded-xl flex flex-row margin-auto justify-around'
 									type='submit'
-									// onClick={handleAddFriend}
+									 onClick={handleDeletePost}
 								>
-									<h3>CONNECT</h3>
+									<h3>Delete</h3>
 								</button> */}
 							</div>
 						</div>
