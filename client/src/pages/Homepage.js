@@ -7,13 +7,17 @@ import Filters from '../components/Filters';
 
 
 
+
+
 import { useQuery} from '@apollo/client';
 
 import { QUERY_POSTS} from '../utils/queries';
 
+
 const Homepage = () => {
 	// using the query hook to make a request 
 	const { loading, data } = useQuery(QUERY_POSTS);
+
 	
 	
 	
@@ -24,8 +28,6 @@ const Homepage = () => {
 	// checking if there's data to post (if not then store it in empty array)
 	const originalPosts = data?.posts || [];
 	console.log(originalPosts);
-
-
 
 	const [isChecked, setIsChecked] = useState(false);
 
@@ -71,12 +73,9 @@ const Homepage = () => {
 
 
 	return (
-		<main>
 
-			<div
-				name='user-list'
-				className='flex flex-row'
-			>
+		<main name='homepage' className='flex-col py-20'>
+			<div className='flex-row'>
 
 				<Filters
 				title='Player List'
@@ -89,10 +88,10 @@ const Homepage = () => {
 				/>
 			</div>
 
-			
-			<div>
-			{loading ? (
-        	<div>Loading...</div>
+			<div className='flex flex-row justify-around container '>
+				{loading ? (
+					<div>Loading...</div>
+
 				) : (
 					
 					<UserCard posts={posts} title="Don't be discouraged to make the first post" />

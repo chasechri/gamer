@@ -10,7 +10,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 5;
   display: flex;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -24,7 +24,25 @@ code {
     monospace;
 }
 
+main {
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 20px;
+}
 
+h1 {
+  flex: 0 1 auto;
+  max-width: 200px;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
 
 a {
   color: var(--icon);
@@ -39,6 +57,17 @@ span {
   font-size: 2.0rem;
 }
 
+button {
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  margin: 5px 5;
+  border-radius: 0.3rem;;
+  border: none;
+  color: darkmagenta;
+  outline: none;
+  background-color: black;
+}
 .card {
   text-align: center;
 }
@@ -53,4 +82,28 @@ span {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.container {
+  margin: 5px;
+  padding: 5px;
+  justify-items: center;
+}
+
+#filters {
+  flex: 0 1 auto;
+  margin: 5px;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+#checkbox {
+  margin: 3px;
+  text-align: end;
+  font-size: small;
+}
+
+#filter-group {
+  border-color: rgb(0, 0, 0);
+  border-style: solid;
 }

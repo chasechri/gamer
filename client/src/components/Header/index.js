@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHomeLg } from "@fortawesome/free-solid-svg-icons";
-import Auth from "../../utils/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHomeLg } from '@fortawesome/free-solid-svg-icons';
+import Auth from '../../utils/auth';
 
 const Header = () => {
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -37,6 +38,7 @@ const Header = () => {
       </div>
     </header>
   );
+
 };
 
 export default Header;

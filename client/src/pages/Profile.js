@@ -5,6 +5,7 @@ import { faPerson } from "@fortawesome/free-solid-svg-icons";
 
 
 
+
 import UserCard from '../components/UserCard';
 import UserForm from '../components/UserForm';
 
@@ -57,6 +58,7 @@ const Profile = () => {
   );
  
 };
+
 
 
 export default Profile;
