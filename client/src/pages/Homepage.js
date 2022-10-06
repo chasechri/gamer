@@ -63,11 +63,13 @@ const Homepage = () => {
 		}
 	}
 
-	function handleComms(comms) {
+	function handleComms(voiceChat) {
 		setIsChecked(!isChecked);
 		if (!isChecked) {
 			console.log('isChecked = true working');
-			setPosts(posts.filter((post) => post.comms === comms.target.value));
+			setPosts(
+				posts.filter((post) => post.voiceChat === voiceChat.target.value),
+			);
 		}
 		if (isChecked) {
 			setPosts(originalPosts);
