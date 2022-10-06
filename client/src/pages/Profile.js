@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +11,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 
 const Profile = () => {
+
 	const { username } = useParams();
 
 	const { data } = useQuery(QUERY_ME, {
@@ -23,6 +25,7 @@ const Profile = () => {
 	}
 
 	return (
+
 		<div className='container flex'>
 			<div className='flex mx-10 py-5 px-5 my-2 content-around items-center border-black border-2 rounded'>
 				<h4 className='px-1 flex justify-center'>
@@ -41,6 +44,7 @@ const Profile = () => {
 					<UserForm />
 				</div>
 			</div>
+
 		</div>
 	);
 };

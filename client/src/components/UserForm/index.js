@@ -75,10 +75,12 @@ const UserForm = () => {
           value={rank}
           onChange={handleChange}
         ></textarea>
+
         <button
           type="submit"
           className="bg-slate-200 border-2 border-black hover:bg-slate-300 py-0"
         >
+
           Submit
         </button>
       </form>
