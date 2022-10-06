@@ -43,7 +43,7 @@ const Signup = () => {
       <div className="">
         <div className="">
           <h4 className="">Sign Up</h4>
-          <div className="">
+          <div className="login">
             <form onSubmit={handleFormSubmit}>
               <input
                 className="form-input border-2 rounded mr-2 pl-2 border-slate-400"

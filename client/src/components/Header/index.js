@@ -22,9 +22,7 @@ const Header = () => {
 						</span>
 					</h1>
 				</Link>
-				<Link className='mx-4' to='/news'>
-					<h1 className='px-2'>News</h1>
-				</Link>
+				
 				<nav>
 					{Auth.loggedIn() ? (
 						<>

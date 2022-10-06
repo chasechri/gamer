@@ -28,7 +28,8 @@ const UserCard = ( {posts, title} ) => {
 				posts.map((post) => (
 					<div
 						key={post._id}
-						className='flex-row py-5 bg-gray-300 items-center border-black border-2 content-start'
+						className='flex-row py-5 bg--300 items-center border-black border-2 content-start'
+						id='profile'
 					>
 						<div className='flex-row'>
 							<h1 className='flex-row ml-3'>
@@ -44,34 +45,31 @@ const UserCard = ( {posts, title} ) => {
 
 						<div className='px-10 flex flex-row'>
 							<div className='flex-col justify-around px-2'>
-								<h2 className='px-1 flex underline justify-center'>Rank</h2>{' '}
+								<h3 className='px-1 flex underline justify-center'>Rank</h3>{' '}
 								<p className='flex capitalize justify-center'>{post.rank}</p>
 							</div>
 
 							<div className='flex-col justify-around px-2'>
-								<h2 className=' px-1 flex underline justify-center'>
+								<h3 className=' px-1 flex underline justify-center'>
 									Platform
-								</h2>{' '}
+								</h3>{' '}
 								<p className='capitalize flex justify-center'>
 									{post.platform}
 								</p>
 							</div>
 
 							<div className='flex-col justify-around px-2'>
-								<h2 className='px-1 flex underline justify-center'>Hours</h2>{' '}
+								<h3 className='px-1 flex underline justify-center'>Hours</h3>{' '}
 								<p className='flex justify-center'>{post.hours}</p>
 							</div>
 
 							<div className='flex-col justify-around px-2'>
-								<h2 className='flex underline justify-center'>Voicechat?</h2>{' '}
+								<h3 className='flex underline justify-center'>Voicechat?</h3>{' '}
 								<p className='capitalize flex justify-center'>{post.voiceChat}</p>
 							</div>
 
 							<div className='flex flex-row justify-between px-2'>
-								<p className='flex pr-2'>
-									Comments: {post.commentCount} || Click to{' '}
-									{post.commentCount ? 'see' : 'start'} the discussion!
-								</p>
+								
 								{/* <button
 									className='bg-black text-white rounded-xl flex flex-row margin-auto justify-around'
 									type='submit'
