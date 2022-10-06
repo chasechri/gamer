@@ -94,6 +94,7 @@ button {
 .login {
   background-color: var(--icon);
   padding: 20px;
+  border-radius: 5px;
 }
 
 .filter {
