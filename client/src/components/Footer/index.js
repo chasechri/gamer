@@ -10,7 +10,7 @@ const Footer = () => {
     flex justify-center items-center"
     >
       <div className="card flex flex-row">
-        <p className="mr-5"> &copy;2022 By Gaming or Whatever </p>
+      
         <a
           className="mx-2"
           href="https://github.com/chasechri/gamer"
