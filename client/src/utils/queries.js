@@ -42,6 +42,9 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      platform
+      hours
+      voiceChat
       friendCount
       friends {
         _id
@@ -64,6 +67,9 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      platform
+      hours
+      voiceChat
       friendCount
       posts {
         _id
