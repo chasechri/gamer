@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserCard = ({ posts, title }) => {
-
     if (!posts.length) {
         return <h3> No Posts Yet</h3>;
     }
@@ -40,7 +39,11 @@ const UserCard = ({ posts, title }) => {
 						</h2>{' '}
 						<p className='flex justify-center'>{post.rank}</p>
 						
-	
+					</div>
+
+					
+                
+               
 				<button
 					className='bg-black text-white px-2 text-center justify-items-end rounded-xl'
 					type='submit'
@@ -61,29 +64,6 @@ const UserCard = ({ posts, title }) => {
     );
 };
 
-							<div className='flex-col justify-between px-2'>
-								<h2 className='flex justify-center'>Voicechat?</h2>{' '}
-								<p className='flex justify-center'>{post.comms}</p>
-							</div>
 
-							<button
-								className='bg-black text-white px-2 text-center justify-items-end rounded-xl'
-								type='submit'
-								// onClick={handleAddFriend}
-							>
-								CONNECT
-							</button>
-						</div>
-						<div>
-							<p>
-								Comments: {post.commentCount} || Click to{' '}
-								{post.commentCount ? 'see' : 'start'} the discussion!
-							</p>
-						</div>
-					</div>
-				))}
-		</div>
-	);
-};
 
 export default UserCard;
