@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
+//import { DELETE_POST } from '../../utils/mutations';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
 const UserForm = () => {
@@ -70,7 +71,7 @@ const UserForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder={'List rank or pubs'}
+          placeholder={rank}
           value={rank}
           onChange={handleChange}
         ></textarea>

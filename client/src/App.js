@@ -61,9 +61,10 @@ function App() {
                 element={<Signup />}
               />
              <Route 
-                path="/profile" 
-                element={<Profile />} 
-              />
+                path="/profile">
+                <Route path=":username" element={<Profile />} />
+                <Route path="" element={<Profile />} />
+              </Route>
               <Route 
                 path="/news" 
                 element={<News />} 

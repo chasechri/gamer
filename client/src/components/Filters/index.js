@@ -7,9 +7,9 @@ export default function Filters({
 	handleComms,
 	clearFilters,
 }) {
-	const ranks = ['pubs', 'gold', 'plat', 'master', 'pred'];
+	const ranks = ['pubs', 'gold', 'platinum', 'diamond', 'master', 'predator'];
 	const hours = ['AM', 'PM'];
-	const comms = ['yes', 'no', 'ping'];
+	const comms = ['yes', 'no'];
 	const platform = ['PC', 'PS4', 'PS5', 'XBOX'];
 	return (
 		<div id='filters' className='flex'>
