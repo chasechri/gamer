@@ -8,6 +8,18 @@ const postSchema = new Schema(
         type: String,
         required: true
     },
+    platform: {
+      type: String, 
+      required: false
+    },
+    hours: {
+        type: String, 
+        required: false
+    },
+    voiceChat: {
+        type: String, 
+        required: false
+    },
     createdAt: {
       type: Date,
       default: Date.now,
